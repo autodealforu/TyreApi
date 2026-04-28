@@ -1,0 +1,44 @@
+export const inputFields = {
+  title: {
+    type: "string",
+    required: true,
+    default: "",
+    options: "",
+    model: "",
+  },
+  category: {
+    type: "related",
+    required: false,
+    default: "",
+    options: "",
+    model: "Category",
+  },
+  image: {
+    type: "string",
+    required: false,
+    default: "",
+    options: "",
+    model: "",
+  },
+  description: {
+    type: "string",
+    required: false,
+    default: "",
+    options: "",
+    model: "",
+  },
+  blog_date: {
+    type: "string",
+    required: false,
+    default: "",
+    options: "",
+    model: "",
+  },
+  slug: {
+    type: "string",
+    required: false,
+    default: "",
+    options: "",
+    model: "",
+  },
+};

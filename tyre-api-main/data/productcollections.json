@@ -1,0 +1,564 @@
+[{
+  "_id": {
+    "$oid": "636c9691771dc6485cfa6973"
+  },
+  "is_dynamic_collection": false,
+  "published_status": "PUBLISHED",
+  "name": "MEN",
+  "slug": "men",
+  "created_by": {
+    "$oid": "636c95ea771dc6485cfa6972"
+  },
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1668060817272"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1668060817272"
+    }
+  },
+  "collection_id": 1000,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "636c96a6771dc6485cfa6974"
+  },
+  "is_dynamic_collection": false,
+  "published_status": "PUBLISHED",
+  "name": "WOMEN",
+  "slug": "women",
+  "created_by": {
+    "$oid": "636c95ea771dc6485cfa6972"
+  },
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1668060838765"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1668060838765"
+    }
+  },
+  "collection_id": 1001,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "636c96ad771dc6485cfa6975"
+  },
+  "is_dynamic_collection": false,
+  "published_status": "PUBLISHED",
+  "name": "KIDS",
+  "slug": "kids",
+  "created_by": {
+    "$oid": "636c95ea771dc6485cfa6972"
+  },
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1668060845086"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1668060845086"
+    }
+  },
+  "collection_id": 1002,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "636c96ba771dc6485cfa6976"
+  },
+  "is_dynamic_collection": false,
+  "published_status": "PUBLISHED",
+  "name": "HOME & LIVING",
+  "slug": "home-living",
+  "created_by": {
+    "$oid": "636c95ea771dc6485cfa6972"
+  },
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1668060858517"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1668060858517"
+    }
+  },
+  "collection_id": 1003,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "636c96c5771dc6485cfa6977"
+  },
+  "is_dynamic_collection": false,
+  "published_status": "PUBLISHED",
+  "name": "BEAUTY",
+  "slug": "beauty",
+  "created_by": {
+    "$oid": "636c95ea771dc6485cfa6972"
+  },
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1668060869434"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1668060869434"
+    }
+  },
+  "collection_id": 1004,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "636ca538771dc6485cfa697d"
+  },
+  "is_dynamic_collection": true,
+  "published_status": "PUBLISHED",
+  "name": "Under 199",
+  "slug": "under-199",
+  "image": "/uploads\\1668064548286-199.png",
+  "dynamic_collection": {
+    "field": "PRICE",
+    "condition": "$lt",
+    "value": 200
+  },
+  "created_by": {
+    "$oid": "636c95ea771dc6485cfa6972"
+  },
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1668064568325"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1668064568325"
+    }
+  },
+  "collection_id": 1005,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "636ca792771dc6485cfa697e"
+  },
+  "is_dynamic_collection": true,
+  "published_status": "PUBLISHED",
+  "name": "Under 299",
+  "slug": "under-299",
+  "image": "/uploads\\1668065143310-299.png",
+  "dynamic_collection": {
+    "field": "PRICE",
+    "condition": "$lt",
+    "value": 300
+  },
+  "created_by": {
+    "$oid": "636c95ea771dc6485cfa6972"
+  },
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1668065170887"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1668065170887"
+    }
+  },
+  "collection_id": 1006,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "636ca804771dc6485cfa697f"
+  },
+  "is_dynamic_collection": true,
+  "published_status": "PUBLISHED",
+  "name": "Under 399",
+  "slug": "under-399",
+  "image": "/uploads\\1668065272922-399.png",
+  "dynamic_collection": {
+    "field": "PRICE",
+    "condition": "$lt",
+    "value": 400
+  },
+  "created_by": {
+    "$oid": "636c95ea771dc6485cfa6972"
+  },
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1668065284370"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1668065284370"
+    }
+  },
+  "collection_id": 1007,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "636ca8f4771dc6485cfa6980"
+  },
+  "is_dynamic_collection": true,
+  "published_status": "PUBLISHED",
+  "name": "Under 499",
+  "slug": "under-499",
+  "image": "/uploads\\1668065514759-499.png",
+  "dynamic_collection": {
+    "field": "PRICE",
+    "condition": "$lt",
+    "value": 500
+  },
+  "created_by": {
+    "$oid": "636c95ea771dc6485cfa6972"
+  },
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1668065524045"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1668065524045"
+    }
+  },
+  "collection_id": 1008,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "636ca978771dc6485cfa6981"
+  },
+  "is_dynamic_collection": true,
+  "published_status": "PUBLISHED",
+  "name": "Under 599",
+  "slug": "under-599",
+  "image": "/uploads\\1668065645825-599.png",
+  "dynamic_collection": {
+    "field": "PRICE",
+    "condition": "$lt",
+    "value": 600
+  },
+  "created_by": {
+    "$oid": "636c95ea771dc6485cfa6972"
+  },
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1668065656364"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1668065656364"
+    }
+  },
+  "collection_id": 1009,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "636caa9e771dc6485cfa6982"
+  },
+  "is_dynamic_collection": false,
+  "published_status": "PUBLISHED",
+  "name": "New Arrivals",
+  "slug": "new-arrivals",
+  "created_by": {
+    "$oid": "636c95ea771dc6485cfa6972"
+  },
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1668065950200"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1668065950200"
+    }
+  },
+  "collection_id": 1010,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "636caab6771dc6485cfa6983"
+  },
+  "is_dynamic_collection": false,
+  "published_status": "PUBLISHED",
+  "name": "Shirt",
+  "slug": "shirt",
+  "created_by": {
+    "$oid": "636c95ea771dc6485cfa6972"
+  },
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1668065974395"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1668065974395"
+    }
+  },
+  "collection_id": 1011,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "636caabb771dc6485cfa6984"
+  },
+  "is_dynamic_collection": false,
+  "published_status": "PUBLISHED",
+  "name": "Bags",
+  "slug": "bags",
+  "created_by": {
+    "$oid": "636c95ea771dc6485cfa6972"
+  },
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1668065979499"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1668065979499"
+    }
+  },
+  "collection_id": 1012,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "636caac5771dc6485cfa6985"
+  },
+  "is_dynamic_collection": false,
+  "published_status": "PUBLISHED",
+  "name": "Tops",
+  "slug": "tops",
+  "created_by": {
+    "$oid": "636c95ea771dc6485cfa6972"
+  },
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1668065989794"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1668065989794"
+    }
+  },
+  "collection_id": 1013,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "636caace771dc6485cfa6986"
+  },
+  "is_dynamic_collection": false,
+  "published_status": "PUBLISHED",
+  "name": "Sweatshirts",
+  "slug": "sweatshirts",
+  "created_by": {
+    "$oid": "636c95ea771dc6485cfa6972"
+  },
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1668065998047"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1668066006361"
+    }
+  },
+  "collection_id": 1014,
+  "__v": 0,
+  "updated_by": {
+    "$oid": "636c95ea771dc6485cfa6972"
+  }
+},{
+  "_id": {
+    "$oid": "636cab01771dc6485cfa6987"
+  },
+  "is_dynamic_collection": true,
+  "published_status": "PUBLISHED",
+  "name": "Under 699",
+  "slug": "under-699",
+  "image": "/uploads\\1668066040020-699.png",
+  "dynamic_collection": {
+    "field": "PRICE",
+    "condition": "$lt",
+    "value": 700
+  },
+  "created_by": {
+    "$oid": "636c95ea771dc6485cfa6972"
+  },
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1668066049040"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1668066049040"
+    }
+  },
+  "collection_id": 1015,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "636cab1d771dc6485cfa6988"
+  },
+  "is_dynamic_collection": true,
+  "published_status": "PUBLISHED",
+  "name": "Under 799",
+  "slug": "under-799",
+  "image": "/uploads\\1668066066303-799.png",
+  "dynamic_collection": {
+    "field": "PRICE",
+    "condition": "$lt",
+    "value": 799
+  },
+  "created_by": {
+    "$oid": "636c95ea771dc6485cfa6972"
+  },
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1668066077983"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1668066077983"
+    }
+  },
+  "collection_id": 1016,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "636cab5c771dc6485cfa6989"
+  },
+  "is_dynamic_collection": true,
+  "published_status": "PUBLISHED",
+  "name": "Under 899",
+  "slug": "under-899",
+  "image": "/uploads\\1668066128871-899.png",
+  "dynamic_collection": {
+    "field": "PRICE",
+    "condition": "$lt",
+    "value": 900
+  },
+  "created_by": {
+    "$oid": "636c95ea771dc6485cfa6972"
+  },
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1668066140951"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1668066140951"
+    }
+  },
+  "collection_id": 1017,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "636cab77771dc6485cfa698a"
+  },
+  "is_dynamic_collection": true,
+  "published_status": "PUBLISHED",
+  "name": "Under 999",
+  "slug": "under-999",
+  "image": "/uploads\\1668066156699-999.png",
+  "dynamic_collection": {
+    "field": "PRICE",
+    "condition": "$lt",
+    "value": 1000
+  },
+  "created_by": {
+    "$oid": "636c95ea771dc6485cfa6972"
+  },
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1668066167620"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1668066167620"
+    }
+  },
+  "collection_id": 1018,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "636cac4a771dc6485cfa6999"
+  },
+  "is_dynamic_collection": false,
+  "published_status": "PUBLISHED",
+  "name": "Featured",
+  "slug": "featured",
+  "created_by": {
+    "$oid": "636c95ea771dc6485cfa6972"
+  },
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1668066378676"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1668066378676"
+    }
+  },
+  "collection_id": 1019,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "636cac56771dc6485cfa699a"
+  },
+  "is_dynamic_collection": false,
+  "published_status": "PUBLISHED",
+  "name": "Best Seller",
+  "slug": "best-seller",
+  "created_by": {
+    "$oid": "636c95ea771dc6485cfa6972"
+  },
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1668066390166"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1668066390166"
+    }
+  },
+  "collection_id": 1020,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "636cac5d771dc6485cfa699b"
+  },
+  "is_dynamic_collection": false,
+  "published_status": "PUBLISHED",
+  "name": "Trending",
+  "slug": "trending",
+  "created_by": {
+    "$oid": "636c95ea771dc6485cfa6972"
+  },
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1668066397375"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1668066397375"
+    }
+  },
+  "collection_id": 1021,
+  "__v": 0
+}]

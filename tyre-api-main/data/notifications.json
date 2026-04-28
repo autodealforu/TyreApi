@@ -1,0 +1,51 @@
+[{
+  "_id": {
+    "$oid": "6377353078ef26866f7b88a2"
+  },
+  "is_read": true,
+  "published_status": "PUBLISHED",
+  "notes": "<p>  Order #1000 of amount 220 is received. Please check. </p>",
+  "order": {
+    "$oid": "6377353078ef26866f7b889f"
+  },
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1668756784534"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1668832765951"
+    }
+  },
+  "notification_id": 1000,
+  "__v": 0,
+  "updated_by": {
+    "$oid": "634fadd6f4f3786d43dbf630"
+  }
+},{
+  "_id": {
+    "$oid": "6378cc46d59926d713f84caa"
+  },
+  "is_read": true,
+  "published_status": "PUBLISHED",
+  "notes": "<p>  Order #1001 of amount 220 is received. Please check. </p>",
+  "order": {
+    "$oid": "6378cc45d59926d713f84ca7"
+  },
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1668860998075"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1669022574498"
+    }
+  },
+  "notification_id": 1001,
+  "__v": 0,
+  "updated_by": {
+    "$oid": "634fadd6f4f3786d43dbf630"
+  }
+}]

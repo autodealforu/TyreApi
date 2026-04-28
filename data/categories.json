@@ -1,0 +1,23 @@
+[{
+  "_id": {
+    "$oid": "637ca496cad8c626dbd4e7da"
+  },
+  "published_status": "PUBLISHED",
+  "name": "Fashion",
+  "slug": "fashion",
+  "created_by": {
+    "$oid": "634fadd6f4f3786d43dbf630"
+  },
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1669112982825"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1669112982825"
+    }
+  },
+  "category_id": 1000,
+  "__v": 0
+}]

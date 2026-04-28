@@ -1,0 +1,31 @@
+[{
+  "_id": {
+    "$oid": "63747c863dec6c20bf184276"
+  },
+  "commission": 12,
+  "published_status": "PUBLISHED",
+  "name": "Shirt",
+  "slug": "shirt",
+  "product_collection": {
+    "$oid": "637736237b079c878aaa816f"
+  },
+  "image": "/uploads/1668578433172-brown-laces.jpg",
+  "created_by": {
+    "$oid": "634fadd6f4f3786d43dbf630"
+  },
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1668578438285"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1668759100125"
+    }
+  },
+  "productcategory_id": 1000,
+  "__v": 0,
+  "updated_by": {
+    "$oid": "634fadd6f4f3786d43dbf630"
+  }
+}]

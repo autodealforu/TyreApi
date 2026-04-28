@@ -1,0 +1,133 @@
+[{
+  "_id": {
+    "$oid": "636ca35f771dc6485cfa697b"
+  },
+  "published_status": "PUBLISHED",
+  "name": "Brands",
+  "image": "/uploads\\1668064094058-SHOES_Banner.png",
+  "created_by": {
+    "$oid": "636c95ea771dc6485cfa6972"
+  },
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1668064095649"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1668064095649"
+    }
+  },
+  "template_id": 1000,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "636cc930b9a62f2c08d4dfeb"
+  },
+  "published_status": "PUBLISHED",
+  "name": "Products",
+  "image": "/uploads\\1668073775382-01.webp",
+  "created_by": {
+    "$oid": "636c95ea771dc6485cfa6972"
+  },
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1668073776771"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1668073776771"
+    }
+  },
+  "template_id": 1001,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "636cc944b9a62f2c08d4dfec"
+  },
+  "published_status": "PUBLISHED",
+  "name": "Offer",
+  "image": "/uploads\\1668073796093-10.webp",
+  "created_by": {
+    "$oid": "636c95ea771dc6485cfa6972"
+  },
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1668073796967"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1668073796967"
+    }
+  },
+  "template_id": 1002,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "636cc955b9a62f2c08d4dfed"
+  },
+  "published_status": "PUBLISHED",
+  "name": "Price",
+  "image": "/uploads\\1668073812234-03.webp",
+  "created_by": {
+    "$oid": "636c95ea771dc6485cfa6972"
+  },
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1668073813103"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1668073813103"
+    }
+  },
+  "template_id": 1003,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "636cc964b9a62f2c08d4dfee"
+  },
+  "published_status": "PUBLISHED",
+  "name": "Categories",
+  "image": "/uploads\\1668073827794-08.webp",
+  "created_by": {
+    "$oid": "636c95ea771dc6485cfa6972"
+  },
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1668073828566"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1668073828566"
+    }
+  },
+  "template_id": 1004,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "636ce835b9a62f2c08d4dffb"
+  },
+  "published_status": "PUBLISHED",
+  "name": "Featured Banner",
+  "image": "/uploads\\1668081716441-delivery.webp",
+  "created_by": {
+    "$oid": "636c95ea771dc6485cfa6972"
+  },
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1668081717742"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1668081717742"
+    }
+  },
+  "template_id": 1005,
+  "__v": 0
+}]

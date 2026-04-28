@@ -1,0 +1,253 @@
+[{
+  "_id": {
+    "$oid": "635bb96b155bfa6a5c7ae681"
+  },
+  "published_status": "PUBLISHED",
+  "email": "a",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1666955627011"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1666955627011"
+    }
+  },
+  "newsletter_id": 1000,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "635bb96e155bfa6a5c7ae682"
+  },
+  "published_status": "PUBLISHED",
+  "email": "b",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1666955630366"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1666955630366"
+    }
+  },
+  "newsletter_id": 1001,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "635bb972155bfa6a5c7ae683"
+  },
+  "published_status": "PUBLISHED",
+  "email": "c",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1666955634896"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1666955634896"
+    }
+  },
+  "newsletter_id": 1002,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "635bb977155bfa6a5c7ae684"
+  },
+  "published_status": "PUBLISHED",
+  "email": "d",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1666955639108"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1666955639108"
+    }
+  },
+  "newsletter_id": 1003,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "635bb97a155bfa6a5c7ae685"
+  },
+  "published_status": "PUBLISHED",
+  "email": "e",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1666955642574"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1666955642574"
+    }
+  },
+  "newsletter_id": 1004,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "635bb97d155bfa6a5c7ae686"
+  },
+  "published_status": "PUBLISHED",
+  "email": "f",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1666955645625"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1666955645625"
+    }
+  },
+  "newsletter_id": 1005,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "635bb980155bfa6a5c7ae687"
+  },
+  "published_status": "PUBLISHED",
+  "email": "g",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1666955648276"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1666955648276"
+    }
+  },
+  "newsletter_id": 1006,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "635bb983155bfa6a5c7ae688"
+  },
+  "published_status": "PUBLISHED",
+  "email": "h",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1666955651615"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1666955651615"
+    }
+  },
+  "newsletter_id": 1007,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "635bb986155bfa6a5c7ae689"
+  },
+  "published_status": "PUBLISHED",
+  "email": "g",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1666955654483"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1666955654483"
+    }
+  },
+  "newsletter_id": 1008,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "635bb989155bfa6a5c7ae68a"
+  },
+  "published_status": "PUBLISHED",
+  "email": "s",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1666955657102"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1666955657102"
+    }
+  },
+  "newsletter_id": 1009,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "635bb98b155bfa6a5c7ae68b"
+  },
+  "published_status": "PUBLISHED",
+  "email": "s",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1666955659584"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1666955659584"
+    }
+  },
+  "newsletter_id": 1010,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "635bb98e155bfa6a5c7ae68c"
+  },
+  "published_status": "PUBLISHED",
+  "email": "s",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1666955662034"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1666955662034"
+    }
+  },
+  "newsletter_id": 1011,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "635bb991155bfa6a5c7ae68d"
+  },
+  "published_status": "PUBLISHED",
+  "email": "s",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1666955665336"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1666955665336"
+    }
+  },
+  "newsletter_id": 1012,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6388575ebcc44a349988e837"
+  },
+  "published_status": "PUBLISHED",
+  "email": "test@test,com",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1669879646506"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1669879646506"
+    }
+  },
+  "newsletter_id": 1013,
+  "__v": 0
+}]

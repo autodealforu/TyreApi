@@ -1,0 +1,294 @@
+[{
+  "_id": {
+    "$oid": "634fadd6f4f3786d43dbf630"
+  },
+  "vendor": {
+    "pickup_address": {
+      "profile_status": "UNDER REVIEW",
+      "store_active": false
+    },
+    "profile_status": "UNDER REVIEW",
+    "store_active": false
+  },
+  "role": "SUPER ADMIN",
+  "published_status": "PUBLISHED",
+  "name": "Super Admin",
+  "username": "superadmin",
+  "phone": "1234567890",
+  "password": "$2a$10$4NpYsK1vpFMDuD6AvS7w7u.cAfURdsOkIhKGZ3vjFJ2wpTiX614tu",
+  "address": [],
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1666166230977"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1666952327330"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "635b6a4d0794ab4b91e78c95"
+  },
+  "vendor": {
+    "profile_status": "UNDER REVIEW",
+    "store_active": false
+  },
+  "role": "CUSTOMER",
+  "published_status": "PUBLISHED",
+  "name": "Ankur Gupta",
+  "phone": "+918287845558",
+  "email": "nishant.tripathi7700@gwmail.com",
+  "address": [
+    {
+      "_id": {
+        "$oid": "635b6a4d0794ab4b91e78c96"
+      },
+      "address_1": "Chander Nagar",
+      "address_2": "Sdd",
+      "city": "Gaziabad",
+      "state": "Uttar Pradesh",
+      "landmark": "TEST"
+    }
+  ],
+  "password": "$2a$10$q/C2g/XwFZFa/vowBksDSuL0pd26xC82cR0JuzrovbLe3BxbToEwe",
+  "username": "nishant.tripathi7700@gwmail.com",
+  "created_by": {
+    "$oid": "634fadd6f4f3786d43dbf630"
+  },
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1666935373062"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1666935373062"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "635b6af7bbc6594c718b7815"
+  },
+  "vendor": {
+    "profile_status": "UNDER REVIEW",
+    "store_active": false
+  },
+  "role": "CUSTOMER",
+  "published_status": "PUBLISHED",
+  "name": "Ankur Gupta",
+  "phone": "08447571177",
+  "email": "poojapathaksrf@gmail.com",
+  "password": "$2a$10$h67UmkJ0QKO3ugspwP3K9.RemNod36hZE99NueYfrJTt5siLPiVbW",
+  "username": "poojapathaksrf@gmail.com",
+  "address": [
+    {
+      "_id": {
+        "$oid": "635b89babbc6594c718b781b"
+      },
+      "address_1": "Chander Nagar",
+      "address_2": "Sdd",
+      "city": "Gaziabad",
+      "state": "Uttar Pradesh",
+      "landmark": "TEST",
+      "pin": "208002"
+    }
+  ],
+  "created_by": {
+    "$oid": "634fadd6f4f3786d43dbf630"
+  },
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1666935543021"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1666943418042"
+    }
+  },
+  "__v": 5,
+  "updated_by": {
+    "$oid": "634fadd6f4f3786d43dbf630"
+  }
+},{
+  "_id": {
+    "$oid": "636cc18f352fe164a4495877"
+  },
+  "vendor": {
+    "profile_status": "UNDER REVIEW",
+    "store_active": false
+  },
+  "role": "SUPER ADMIN",
+  "published_status": "PUBLISHED",
+  "name": "Super Admin",
+  "username": "superadmin",
+  "phone": "1234567890",
+  "password": "$2a$10$2mxXrwPZ.oYkXmIUombaaeEpMCAXpbgSpIy1PvN9Pur9dCVK8U4R.",
+  "address": [],
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1668071823585"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1668071823585"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "636de7fe40ccc082d12a8452"
+  },
+  "vendor": {
+    "profile_status": "UNDER REVIEW",
+    "store_active": false,
+    "store_name": "Test",
+    "store_description": "<p>This is a test descriptuon</p>\n",
+    "pickup_address": []
+  },
+  "role": "VENDOR",
+  "published_status": "PUBLISHED",
+  "name": "Shubham Pathak",
+  "email": "shubhampathak@gmail.comm",
+  "password": "$2a$10$6lIZha1mnoHE08KGhALqce4lBjaEzNrCznLZKXOzo17fVIs5HrasW",
+  "phone": "74747474784",
+  "created_by": {
+    "$oid": "634fadd6f4f3786d43dbf630"
+  },
+  "username": "shubhampathak@gmail.comm",
+  "address": [],
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1668147198700"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1668147198700"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "636de86c50f8268581e7a36d"
+  },
+  "vendor": {
+    "pickup_address": [
+      {
+        "_id": {
+          "$oid": "636de8d250f8268581e7a36f"
+        },
+        "address_1": "Test",
+        "address_2": "Test",
+        "city": "Delhi",
+        "state": "Daman & Diu",
+        "landmark": "Test",
+        "pin": "201301"
+      }
+    ]
+  },
+  "role": "VENDOR",
+  "published_status": "PUBLISHED",
+  "name": "asfdasdf",
+  "email": "aslkjdfl@ssdafl.co",
+  "password": "$2a$10$vbRUwdeJA5uiTzb8mSp6auzG30u0ayL5e9KkfHTUYA4Iy7pRmZx5G",
+  "phone": "8447571177",
+  "created_by": {
+    "$oid": "634fadd6f4f3786d43dbf630"
+  },
+  "username": "aslkjdfl@ssdafl.co",
+  "address": [],
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1668147308533"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1668147410295"
+    }
+  },
+  "__v": 0,
+  "updated_by": {
+    "$oid": "634fadd6f4f3786d43dbf630"
+  }
+},{
+  "_id": {
+    "$oid": "636deb6950f8268581e7a370"
+  },
+  "vendor": {
+    "profile_status": "UNDER REVIEW",
+    "store_active": false,
+    "pickup_address": [
+      {
+        "_id": {
+          "$oid": "636e00b950f8268581e7a374"
+        },
+        "address_1": "127 G Block",
+        "address_2": "GK1",
+        "city": "Kanpur",
+        "state": "Uttar Pradesh",
+        "pin": "110048"
+      }
+    ],
+    "store_name": "Something Special"
+  },
+  "role": "VENDOR",
+  "published_status": "PUBLISHED",
+  "name": "Sudhir Kumar",
+  "email": "sudhirkumar@gmail.com",
+  "password": "$2a$10$75IWPTEn/0F7dyFGqTpfA.JlbuYI5wnZEl8b5hOdEWtuuuGGEV4si",
+  "phone": "8447571177",
+  "created_by": {
+    "$oid": "634fadd6f4f3786d43dbf630"
+  },
+  "username": "sudhirkumar@gmail.com",
+  "address": [],
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1668148073593"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1668576626036"
+    }
+  },
+  "__v": 0,
+  "updated_by": {
+    "$oid": "634fadd6f4f3786d43dbf630"
+  }
+},{
+  "_id": {
+    "$oid": "6377351678ef26866f7b889b"
+  },
+  "vendor": {
+    "profile_status": "UNDER REVIEW",
+    "store_active": false,
+    "pickup_address": []
+  },
+  "role": "CUSTOMER",
+  "published_status": "PUBLISHED",
+  "name": "Nishant Tripathi",
+  "username": "nishant.tripathi7700@gmail.com",
+  "email": "nishant.tripathi7700@gmail.com",
+  "password": "$2a$10$OGX1Llggzf2vGjLM8NoFEeW49R2p4ywasKmEgiwFg.iA38HtVRDTi",
+  "phone": "9849494949",
+  "address": [],
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1668756758059"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1668756758059"
+    }
+  },
+  "__v": 0
+}]

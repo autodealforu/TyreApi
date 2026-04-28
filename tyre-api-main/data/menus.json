@@ -1,0 +1,89 @@
+[{
+  "_id": {
+    "$oid": "635119930532d6a2926144d0"
+  },
+  "published_status": "PUBLISHED",
+  "name": "TESt",
+  "created_by": {
+    "$oid": "634fadd6f4f3786d43dbf630"
+  },
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1666259347648"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1666259347648"
+    }
+  },
+  "menu_id": 1000,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63511a100532d6a2926144d1"
+  },
+  "published_status": "PUBLISHED",
+  "name": "TEST 2",
+  "created_by": {
+    "$oid": "634fadd6f4f3786d43dbf630"
+  },
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1666259472698"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1666259472698"
+    }
+  },
+  "menu_id": 1001,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63512dd80532d6a2926144d2"
+  },
+  "published_status": "PUBLISHED",
+  "name": "TEST",
+  "created_by": {
+    "$oid": "634fadd6f4f3786d43dbf630"
+  },
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1666264536779"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1666264536779"
+    }
+  },
+  "menu_id": 1002,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63512ed80532d6a2926144d3"
+  },
+  "published_status": "PUBLISHED",
+  "name": "Another Test",
+  "fields": "[{\"id\":\"main-item-1\",\"data\":{\"title\":\"Another One\",\"link\":\"\",\"class\":\"\",\"menu\":[]}},{\"id\":\"main-item-0\",\"data\":{\"title\":\"Menu 1\",\"link\":\"test\",\"class\":\"\",\"menu\":[{\"id\":\"main-item-0\",\"data\":{\"title\":\"One ewwe\",\"link\":\"\",\"class\":\"\",\"menu\":[{\"id\":\"main-item-0\",\"data\":{\"title\":\"Two Evvewew\",\"link\":\"\",\"class\":\"\",\"menu\":[]}},{\"id\":\"main-item-1\",\"data\":{\"title\":\"Four EDFSD\",\"link\":\"\",\"class\":\"\",\"menu\":[]}}]}}]}}]",
+  "created_by": {
+    "$oid": "634fadd6f4f3786d43dbf630"
+  },
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1666264792180"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1666265593396"
+    }
+  },
+  "menu_id": 1003,
+  "__v": 0,
+  "updated_by": {
+    "$oid": "634fadd6f4f3786d43dbf630"
+  }
+}]

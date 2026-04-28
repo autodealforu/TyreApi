@@ -1,0 +1,83 @@
+[
+  {
+    "_id": {
+      "$oid": "636c9740771dc6485cfa6978"
+    },
+    "published_status": "PUBLISHED",
+    "name": "Banner1",
+    "product_collection": {
+      "$oid": "636c96c5771dc6485cfa6977"
+    },
+    "created_by": {
+      "$oid": "636c95ea771dc6485cfa6972"
+    },
+    "createdAt": {
+      "$date": {
+        "$numberLong": "1668060992755"
+      }
+    },
+    "updatedAt": {
+      "$date": {
+        "$numberLong": "1668061029783"
+      }
+    },
+    "banner_id": 1000,
+    "__v": 0,
+    "image": "/uploads\\1668061028174-Banner_01.png",
+    "updated_by": {
+      "$oid": "636c95ea771dc6485cfa6972"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "636c9774771dc6485cfa6979"
+    },
+    "published_status": "PUBLISHED",
+    "name": "Banner2",
+    "product_collection": {
+      "$oid": "636c96ba771dc6485cfa6976"
+    },
+    "image": "/uploads\\1668061042813-Banner_03.png",
+    "created_by": {
+      "$oid": "636c95ea771dc6485cfa6972"
+    },
+    "createdAt": {
+      "$date": {
+        "$numberLong": "1668061044010"
+      }
+    },
+    "updatedAt": {
+      "$date": {
+        "$numberLong": "1668061044010"
+      }
+    },
+    "banner_id": 1001,
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "636c977f771dc6485cfa697a"
+    },
+    "published_status": "PUBLISHED",
+    "name": "banner3",
+    "product_collection": {
+      "$oid": "636c96a6771dc6485cfa6974"
+    },
+    "image": "/uploads\\1668061053801-SHOES_Banner.png",
+    "created_by": {
+      "$oid": "636c95ea771dc6485cfa6972"
+    },
+    "createdAt": {
+      "$date": {
+        "$numberLong": "1668061055111"
+      }
+    },
+    "updatedAt": {
+      "$date": {
+        "$numberLong": "1668061055111"
+      }
+    },
+    "banner_id": 1002,
+    "__v": 0
+  }
+]

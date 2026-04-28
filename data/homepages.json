@@ -1,0 +1,328 @@
+[{
+  "_id": "636ce89db9a62f2c08d4dffc",
+  "collections_component": {
+    "product_collections": []
+  },
+  "position": 1,
+  "display_type": "GALLERY",
+  "published_status": "PUBLISHED",
+  "title": "Featured Section",
+  "template": "636ce835b9a62f2c08d4dffb",
+  "description": "<p>hello</p>\n",
+  "created_by": "636c95ea771dc6485cfa6972",
+  "gallery_component": [
+    {
+      "_id": "636ce92db9a62f2c08d4dffd",
+      "image": "/uploads\\1668081953702-women_wear.png",
+      "link": ""
+    },
+    {
+      "_id": "636ce92db9a62f2c08d4dffe",
+      "image": "/uploads\\1668081958330-men_wear.png",
+      "link": ""
+    },
+    {
+      "_id": "636ce92db9a62f2c08d4dfff",
+      "image": "/uploads\\1668081964394-kid_wear.png",
+      "link": ""
+    }
+  ],
+  "slider_component": [],
+  "text_component": [],
+  "createdAt": "2022-11-10T12:03:41.593Z",
+  "updatedAt": "2022-11-10T12:06:05.664Z",
+  "homepage_id": 1008,
+  "__v": 1,
+  "updated_by": "636c95ea771dc6485cfa6972"
+},{
+  "_id": "636cc9feb9a62f2c08d4dfef",
+  "collections_component": {
+    "product_collections": []
+  },
+  "collection_product_component": {
+    "product_collection": "636cac4a771dc6485cfa6999"
+  },
+  "position": 2,
+  "display_type": "COLLECTION PRODUCTS",
+  "published_status": "PUBLISHED",
+  "title": "Featured Products",
+  "description": "<p>The Purpose Of Lorem Ipsum</p>\n\n",
+  "template": "636cc930b9a62f2c08d4dfeb",
+  "created_by": "636c95ea771dc6485cfa6972",
+  "gallery_component": [],
+  "slider_component": [],
+  "text_component": [],
+  "createdAt": "2022-11-10T09:53:02.179Z",
+  "updatedAt": "2022-11-10T09:53:02.179Z",
+  "homepage_id": 1001,
+  "__v": 0
+},{
+  "_id": "636cca2fb9a62f2c08d4dff0",
+  "collections_component": {
+    "product_collections": []
+  },
+  "collection_product_component": {
+    "product_collection": "636caa9e771dc6485cfa6982"
+  },
+  "position": 3,
+  "display_type": "COLLECTION PRODUCTS",
+  "published_status": "PUBLISHED",
+  "title": "New Arrival",
+  "description": "<p>The Purpose Of Lorem Ipsum</p>\n\n",
+  "template": "636cc930b9a62f2c08d4dfeb",
+  "created_by": "636c95ea771dc6485cfa6972",
+  "gallery_component": [],
+  "slider_component": [],
+  "text_component": [],
+  "createdAt": "2022-11-10T09:53:51.284Z",
+  "updatedAt": "2022-11-10T09:53:51.284Z",
+  "homepage_id": 1002,
+  "__v": 0
+},{
+  "_id": "636cca75b9a62f2c08d4dff1",
+  "collections_component": {
+    "product_collections": []
+  },
+  "collection_product_component": {
+    "product_collection": "636cac56771dc6485cfa699a"
+  },
+  "position": 4,
+  "display_type": "COLLECTION PRODUCTS",
+  "published_status": "PUBLISHED",
+  "title": "Best Seller",
+  "description": "<p>The Purpose Of Lorem Ipsum</p>\n",
+  "template": "636cc930b9a62f2c08d4dfeb",
+  "created_by": "636c95ea771dc6485cfa6972",
+  "gallery_component": [],
+  "slider_component": [],
+  "text_component": [],
+  "createdAt": "2022-11-10T09:55:01.080Z",
+  "updatedAt": "2022-11-10T09:55:01.080Z",
+  "homepage_id": 1003,
+  "__v": 0
+},{
+  "_id": "636ccaa1b9a62f2c08d4dff2",
+  "collections_component": {
+    "product_collections": []
+  },
+  "collection_product_component": {
+    "product_collection": "636cac5d771dc6485cfa699b"
+  },
+  "position": 5,
+  "display_type": "COLLECTION PRODUCTS",
+  "published_status": "PUBLISHED",
+  "title": "Trending",
+  "description": "<p>The Purpose Of Lorem Ipsum</p>\n",
+  "template": "636cc930b9a62f2c08d4dfeb",
+  "created_by": "636c95ea771dc6485cfa6972",
+  "gallery_component": [],
+  "slider_component": [],
+  "text_component": [],
+  "createdAt": "2022-11-10T09:55:45.964Z",
+  "updatedAt": "2022-11-10T09:55:45.964Z",
+  "homepage_id": 1004,
+  "__v": 0
+},{
+  "_id": "636ccb7fb9a62f2c08d4dff3",
+  "collections_component": {
+    "product_collections": []
+  },
+  "position": 6,
+  "display_type": "TEXT",
+  "published_status": "PUBLISHED",
+  "title": "What We Offer!",
+  "description": "<p>The Purpose Of Lorem Ipsum</p>\n",
+  "template": "636cc944b9a62f2c08d4dfec",
+  "created_by": "636c95ea771dc6485cfa6972",
+  "gallery_component": [],
+  "slider_component": [],
+  "text_component": [
+    {
+      "_id": "636cde58b9a62f2c08d4dff6",
+      "image": "/uploads\\1668079175769-delivery.webp",
+      "link": "",
+      "title": "Free Delivery",
+      "content": "<p>Nor again is there anyone who loves or pursues or desires to obtain pain of itself.</p>\n"
+    },
+    {
+      "_id": "636cdea9b9a62f2c08d4dff8",
+      "image": "/uploads\\1668079219943-money-bag.webp",
+      "link": "",
+      "title": "Secure Payment",
+      "content": "<p>Nor again is there anyone who loves or pursues or desires to obtain pain of itself.</p>\n"
+    },
+    {
+      "_id": "636cdea9b9a62f2c08d4dff9",
+      "image": "/uploads\\1668079241992-paypal.webp",
+      "link": "",
+      "title": "Free Returns",
+      "content": "<p>Nor again is there anyone who loves or pursues or desires to obtain pain of itself.</p>\n"
+    },
+    {
+      "_id": "636cdea9b9a62f2c08d4dffa",
+      "image": "/uploads\\1668079263260-support.webp",
+      "link": "",
+      "title": "24/7 Support",
+      "content": "<p>Nor again is there anyone who loves or pursues or desires to obtain pain of itself.</p>\n"
+    }
+  ],
+  "createdAt": "2022-11-10T09:59:27.888Z",
+  "updatedAt": "2022-11-10T11:21:13.454Z",
+  "homepage_id": 1005,
+  "__v": 2,
+  "updated_by": "636c95ea771dc6485cfa6972"
+},{
+  "_id": "636ccbeeb9a62f2c08d4dff4",
+  "collections_component": {
+    "product_collections": [
+      "636ca538771dc6485cfa697d",
+      "636ca792771dc6485cfa697e",
+      "636ca804771dc6485cfa697f",
+      "636ca8f4771dc6485cfa6980",
+      "636ca978771dc6485cfa6981",
+      "636cab01771dc6485cfa6987",
+      "636cab1d771dc6485cfa6988",
+      "636cab5c771dc6485cfa6989",
+      "636cab77771dc6485cfa698a"
+    ]
+  },
+  "position": 7,
+  "display_type": "COLLECTION",
+  "published_status": "PUBLISHED",
+  "title": "Shop By Price",
+  "description": "<p>The Purpose Of Lorem Ipsum</p>\n",
+  "template": "636cc964b9a62f2c08d4dfee",
+  "created_by": "636c95ea771dc6485cfa6972",
+  "gallery_component": [],
+  "slider_component": [],
+  "text_component": [],
+  "createdAt": "2022-11-10T10:01:18.279Z",
+  "updatedAt": "2022-11-10T10:01:18.279Z",
+  "homepage_id": 1006,
+  "__v": 0
+},{
+  "_id": "636ccc58b9a62f2c08d4dff5",
+  "collections_component": {
+    "product_collections": [
+      "636c9691771dc6485cfa6973",
+      "636c96a6771dc6485cfa6974",
+      "636c96ad771dc6485cfa6975",
+      "636c96ba771dc6485cfa6976",
+      "636c96c5771dc6485cfa6977",
+      "636caace771dc6485cfa6986",
+      "636caab6771dc6485cfa6983",
+      "636caac5771dc6485cfa6985",
+      "636caabb771dc6485cfa6984"
+    ]
+  },
+  "position": 8,
+  "display_type": "COLLECTION",
+  "published_status": "PUBLISHED",
+  "title": "Top Categories",
+  "description": "<p>Select Your Favorite Categories And Purchase</p>\n",
+  "template": "636cc964b9a62f2c08d4dfee",
+  "created_by": "636c95ea771dc6485cfa6972",
+  "gallery_component": [],
+  "slider_component": [],
+  "text_component": [],
+  "createdAt": "2022-11-10T10:03:04.340Z",
+  "updatedAt": "2022-11-10T10:03:04.340Z",
+  "homepage_id": 1007,
+  "__v": 0
+},{
+  "_id": "636ca445771dc6485cfa697c",
+  "collections_component": {
+    "product_collections": []
+  },
+  "position": 9,
+  "display_type": "GALLERY",
+  "published_status": "PUBLISHED",
+  "title": "Shop By Brands",
+  "description": "<p>Select Your Favorite Brands And Purchase</p>\n",
+  "template": "636ca35f771dc6485cfa697b",
+  "created_by": "636c95ea771dc6485cfa6972",
+  "gallery_component": [
+    {
+      "_id": "636cc8dcb9a62f2c08d4dfe9",
+      "image": "/uploads\\1668073685749-01.webp",
+      "link": ""
+    },
+    {
+      "_id": "636cc8dcb9a62f2c08d4dfea",
+      "image": "/uploads\\1668073691252-02.webp",
+      "link": ""
+    },
+    {
+      "_id": "636cee73b9a62f2c08d4e002",
+      "image": "/uploads\\1668083227621-03.webp",
+      "link": ""
+    },
+    {
+      "_id": "636cee73b9a62f2c08d4e003",
+      "image": "/uploads\\1668083237159-04.webp",
+      "link": ""
+    },
+    {
+      "_id": "636cee73b9a62f2c08d4e004",
+      "image": "/uploads\\1668083240332-05.webp",
+      "link": ""
+    },
+    {
+      "_id": "636cee73b9a62f2c08d4e005",
+      "image": "/uploads\\1668083244465-06.webp",
+      "link": ""
+    },
+    {
+      "_id": "636cee73b9a62f2c08d4e006",
+      "image": "/uploads\\1668083250222-07.webp",
+      "link": ""
+    },
+    {
+      "_id": "636cee73b9a62f2c08d4e007",
+      "image": "/uploads\\1668083254374-08.webp",
+      "link": ""
+    },
+    {
+      "_id": "636cee73b9a62f2c08d4e008",
+      "image": "/uploads\\1668083263242-09.webp",
+      "link": ""
+    },
+    {
+      "_id": "636cee73b9a62f2c08d4e009",
+      "image": "/uploads\\1668083283582-10.webp",
+      "link": ""
+    },
+    {
+      "_id": "636cee73b9a62f2c08d4e00a",
+      "image": "/uploads\\1668083294583-11.webp",
+      "link": ""
+    },
+    {
+      "_id": "636cee73b9a62f2c08d4e00b",
+      "image": "/uploads\\1668083300586-12.webp",
+      "link": ""
+    },
+    {
+      "_id": "636cee73b9a62f2c08d4e00c",
+      "image": "/uploads\\1668083305099-13.webp",
+      "link": ""
+    },
+    {
+      "_id": "636cee73b9a62f2c08d4e00d",
+      "image": "/uploads\\1668083309362-14.webp",
+      "link": ""
+    },
+    {
+      "_id": "636cee73b9a62f2c08d4e00e",
+      "image": "/uploads\\1668083313864-15.webp",
+      "link": ""
+    }
+  ],
+  "slider_component": [],
+  "text_component": [],
+  "createdAt": "2022-11-10T07:12:05.253Z",
+  "updatedAt": "2022-11-10T12:28:35.147Z",
+  "homepage_id": 1000,
+  "__v": 2,
+  "updated_by": "636c95ea771dc6485cfa6972"
+}]

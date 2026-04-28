@@ -1,0 +1,1157 @@
+[{
+  "_id": {
+    "$oid": "636cac20771dc6485cfa698b"
+  },
+  "collections": [
+    {
+      "$oid": "636caac5771dc6485cfa6985"
+    },
+    {
+      "$oid": "636caa9e771dc6485cfa6982"
+    },
+    {
+      "$oid": "636c96a6771dc6485cfa6974"
+    },
+    {
+      "$oid": "636cac56771dc6485cfa699a"
+    },
+    {
+      "$oid": "636cac4a771dc6485cfa6999"
+    },
+    {
+      "$oid": "636cac5d771dc6485cfa699b"
+    }
+  ],
+  "categories": [],
+  "media": [
+    "/uploads\\1668066251876-enaw1_512.webp",
+    "/uploads\\1668066251908-mzgzg_512.webp"
+  ],
+  "sale_price": 250,
+  "tax": 12,
+  "in_stock": true,
+  "stock": 100,
+  "is_variable_product": true,
+  "reviews": [],
+  "published_status": "PUBLISHED",
+  "name": "Classy Graceful Women Tops & Tunics",
+  "description": "<p style=\"text-align:left;\"><span style=\"color: rgb(102,102,102);font-size: 16px;font-family: Mier book;\">Name : Classy Graceful Women Tops &amp; Tunics<br>Fabric : Crepe<br>Sleeve Length : Long Sleeves<br>Pattern : Self-Design<br>Net Quantity (N) : 1<br>Sizes : <br>XS, S, M, L, XL<br>Country of Origin : India</span></p>\n",
+  "regular_price": 300,
+  "sku": "Test",
+  "weight": 10,
+  "length": 10,
+  "width": 10,
+  "height": 9,
+  "variation_attrs": [
+    {
+      "_id": {
+        "$oid": "636cac20771dc6485cfa698c"
+      },
+      "label": "Size",
+      "options": [
+        {
+          "_id": {
+            "$oid": "636cac20771dc6485cfa698d"
+          },
+          "value": "XS"
+        },
+        {
+          "_id": {
+            "$oid": "636cac20771dc6485cfa698e"
+          },
+          "value": "S"
+        },
+        {
+          "_id": {
+            "$oid": "636cac20771dc6485cfa698f"
+          },
+          "value": "L"
+        },
+        {
+          "_id": {
+            "$oid": "636cac20771dc6485cfa6990"
+          },
+          "value": "XL"
+        }
+      ]
+    }
+  ],
+  "variations": [
+    {
+      "media": [],
+      "_id": {
+        "$oid": "636cb00c771dc6485cfa69df"
+      },
+      "price": "300",
+      "options": [
+        {
+          "_id": {
+            "$oid": "636cb00c771dc6485cfa69e0"
+          },
+          "label": "Size",
+          "value": "XS"
+        }
+      ],
+      "in_stock": "true",
+      "sku": "Test-1"
+    },
+    {
+      "media": [],
+      "_id": {
+        "$oid": "636cb00c771dc6485cfa69e1"
+      },
+      "price": "300",
+      "options": [
+        {
+          "_id": {
+            "$oid": "636cb00c771dc6485cfa69e2"
+          },
+          "label": "Size",
+          "value": "S"
+        }
+      ],
+      "in_stock": "true",
+      "sku": "Test-2"
+    },
+    {
+      "media": [],
+      "_id": {
+        "$oid": "636cb00c771dc6485cfa69e3"
+      },
+      "price": "300",
+      "options": [
+        {
+          "_id": {
+            "$oid": "636cb00c771dc6485cfa69e4"
+          },
+          "label": "Size",
+          "value": "L"
+        }
+      ],
+      "in_stock": "true",
+      "sku": "Test-3"
+    },
+    {
+      "media": [],
+      "_id": {
+        "$oid": "636cb00c771dc6485cfa69e5"
+      },
+      "price": "300",
+      "options": [
+        {
+          "_id": {
+            "$oid": "636cb00c771dc6485cfa69e6"
+          },
+          "label": "Size",
+          "value": "XL"
+        }
+      ],
+      "in_stock": "true",
+      "sku": "Test-4"
+    }
+  ],
+  "slug": "classy-graceful-women-tops-tunics",
+  "created_by": {
+    "$oid": "636c95ea771dc6485cfa6972"
+  },
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1668066336389"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1668067340548"
+    }
+  },
+  "product_id": 1000,
+  "__v": 2,
+  "updated_by": {
+    "$oid": "636c95ea771dc6485cfa6972"
+  }
+},{
+  "_id": {
+    "$oid": "636cad87771dc6485cfa69ac"
+  },
+  "collections": [
+    {
+      "$oid": "636cac5d771dc6485cfa699b"
+    },
+    {
+      "$oid": "636cac4a771dc6485cfa6999"
+    },
+    {
+      "$oid": "636cac56771dc6485cfa699a"
+    },
+    {
+      "$oid": "636caa9e771dc6485cfa6982"
+    },
+    {
+      "$oid": "636c96a6771dc6485cfa6974"
+    },
+    {
+      "$oid": "636caac5771dc6485cfa6985"
+    }
+  ],
+  "categories": [],
+  "media": [
+    "/uploads\\1668066622702-uckv0_512.webp",
+    "/uploads\\1668066622688-8jqcl_512.webp",
+    "/uploads\\1668066622697-slbkb_512.webp"
+  ],
+  "sale_price": 350,
+  "tax": 12,
+  "in_stock": true,
+  "stock": 100,
+  "is_variable_product": true,
+  "reviews": [],
+  "published_status": "PUBLISHED",
+  "name": "ARKYUTKI Trendy Fabulous Women Tops",
+  "description": "<p style=\"text-align:left;\"><span style=\"color: rgb(102,102,102);font-size: 16px;font-family: Mier book;\">Name : ARKYUTKI Trendy Fabulous Women Tops<br>Fabric : Georgette<br>Sleeve Length : Long Sleeves<br>Pattern : Solid<br>Net Quantity (N) : 1<br>Sizes : <br>XS (Bust Size : 34 in, Length Size: 18 in)<br>S (Bust Size : 36 in, Length Size: 19 in)<br>M (Bust Size : 38 in, Length Size: 20 in)<br>L (Bust Size : 40 in, Length Size: 21 in)</span></p>\n<p style=\"text-align:left;\"><span style=\"color: rgb(102,102,102);font-size: 16px;font-family: Mier book;\">A woman's western wear brand.it is made with finest chiffon fabric which is very soft and fells great to wear.this Dress will look great.you experience something new every day.A unique products</span></p>\n<p style=\"text-align:left;\"><span style=\"color: rgb(102,102,102);font-size: 16px;font-family: Mier book;\">Country of Origin : India</span></p>\n",
+  "regular_price": 459,
+  "sku": "Test",
+  "weight": 10,
+  "length": 10,
+  "width": 10,
+  "height": 9,
+  "variation_attrs": [
+    {
+      "_id": {
+        "$oid": "636cad87771dc6485cfa69ad"
+      },
+      "label": "Size",
+      "options": [
+        {
+          "_id": {
+            "$oid": "636cad87771dc6485cfa69ae"
+          },
+          "value": "S"
+        },
+        {
+          "_id": {
+            "$oid": "636cad87771dc6485cfa69af"
+          },
+          "value": "M"
+        },
+        {
+          "_id": {
+            "$oid": "636cad87771dc6485cfa69b0"
+          },
+          "value": "L"
+        }
+      ]
+    }
+  ],
+  "variations": [
+    {
+      "media": [],
+      "_id": {
+        "$oid": "6389d0c4b95f5e6d773b22a8"
+      },
+      "price": "300",
+      "options": [
+        {
+          "_id": {
+            "$oid": "6389d0c4b95f5e6d773b22a9"
+          },
+          "label": "Size",
+          "value": "S"
+        }
+      ],
+      "in_stock": "true",
+      "sku": "Test-1"
+    },
+    {
+      "media": [
+        "/uploads/1669976233483-DSC02950 Large.jpeg",
+        "/uploads/1669976233506-DSC02961 Large.jpeg",
+        "/uploads/1669976233523-DSC02983 Large.jpeg"
+      ],
+      "_id": {
+        "$oid": "6389d0c4b95f5e6d773b22aa"
+      },
+      "price": "300",
+      "options": [
+        {
+          "_id": {
+            "$oid": "6389d0c4b95f5e6d773b22ab"
+          },
+          "label": "Size",
+          "value": "M"
+        }
+      ],
+      "in_stock": "true",
+      "sku": "Test-2"
+    },
+    {
+      "media": [
+        "/uploads/1669976247679-DSC02909 Large.jpeg",
+        "/uploads/1669976247688-DSC02910 Large.jpeg",
+        "/uploads/1669976247694-DSC02932 Large.jpeg",
+        "/uploads/1669976247704-DSC02941 Large.jpeg"
+      ],
+      "_id": {
+        "$oid": "6389d0c4b95f5e6d773b22ac"
+      },
+      "price": "300",
+      "options": [
+        {
+          "_id": {
+            "$oid": "6389d0c4b95f5e6d773b22ad"
+          },
+          "label": "Size",
+          "value": "L"
+        }
+      ],
+      "in_stock": "true",
+      "sku": "Test-3"
+    }
+  ],
+  "slug": "arkyutki-trendy-fabulous-women-tops",
+  "created_by": {
+    "$oid": "636c95ea771dc6485cfa6972"
+  },
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1668066695213"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1669976260411"
+    }
+  },
+  "product_id": 1001,
+  "__v": 3,
+  "updated_by": {
+    "$oid": "634fadd6f4f3786d43dbf630"
+  },
+  "product_category": {
+    "$oid": "63747c863dec6c20bf184276"
+  }
+},{
+  "_id": {
+    "$oid": "636cae33771dc6485cfa69b7"
+  },
+  "collections": [
+    {
+      "$oid": "636cac5d771dc6485cfa699b"
+    },
+    {
+      "$oid": "636cac4a771dc6485cfa6999"
+    },
+    {
+      "$oid": "636cac56771dc6485cfa699a"
+    },
+    {
+      "$oid": "636caa9e771dc6485cfa6982"
+    },
+    {
+      "$oid": "636c96a6771dc6485cfa6974"
+    },
+    {
+      "$oid": "636caabb771dc6485cfa6984"
+    }
+  ],
+  "categories": [],
+  "media": [
+    "/uploads\\1668066855762-pink bag.webp"
+  ],
+  "sale_price": 349,
+  "tax": 12,
+  "in_stock": true,
+  "stock": 100,
+  "is_variable_product": true,
+  "reviews": [],
+  "published_status": "PUBLISHED",
+  "name": "Hand Bags For Women & Girls",
+  "description": "<p style=\"text-align:left;\"><span style=\"color: rgb(102,102,102);font-size: 16px;font-family: Mier book;\">Name : Hand Bags For Women &amp; Girls<br>Material : Leather<br>No. of Compartments : 1<br>Pattern : Solid<br>Net Quantity (N) : 1<br>Sizes : Free Size (Length Size: 15 in, Width Size: 10 in, Height Size: 15 in)<br>Country of Origin : India</span><br></p>\n",
+  "regular_price": 500,
+  "sku": "Test",
+  "weight": 10,
+  "length": 10,
+  "width": 10,
+  "height": 10,
+  "variation_attrs": [
+    {
+      "_id": {
+        "$oid": "636cae33771dc6485cfa69b8"
+      },
+      "label": "Size",
+      "options": [
+        {
+          "_id": {
+            "$oid": "636cae33771dc6485cfa69b9"
+          },
+          "value": "Free Size"
+        }
+      ]
+    }
+  ],
+  "variations": [
+    {
+      "media": [],
+      "_id": {
+        "$oid": "63888271bcc44a349988e844"
+      },
+      "price": "500",
+      "options": [
+        {
+          "_id": {
+            "$oid": "63888271bcc44a349988e845"
+          },
+          "label": "Size",
+          "value": "Free Size"
+        }
+      ],
+      "in_stock": "true",
+      "sku": "Test-1"
+    }
+  ],
+  "slug": "hand-bags-for-women-girls",
+  "created_by": {
+    "$oid": "636c95ea771dc6485cfa6972"
+  },
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1668066867928"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1669890673111"
+    }
+  },
+  "product_id": 1002,
+  "__v": 1,
+  "product_category": {
+    "$oid": "63747c863dec6c20bf184276"
+  },
+  "updated_by": {
+    "$oid": "634fadd6f4f3786d43dbf630"
+  }
+},{
+  "_id": {
+    "$oid": "636caf1a771dc6485cfa69c6"
+  },
+  "collections": [
+    {
+      "$oid": "636cac5d771dc6485cfa699b"
+    },
+    {
+      "$oid": "636cac56771dc6485cfa699a"
+    },
+    {
+      "$oid": "636cac4a771dc6485cfa6999"
+    },
+    {
+      "$oid": "636c96a6771dc6485cfa6974"
+    },
+    {
+      "$oid": "636caabb771dc6485cfa6984"
+    },
+    {
+      "$oid": "636caa9e771dc6485cfa6982"
+    }
+  ],
+  "categories": [],
+  "media": [
+    "/uploads\\1668067005263-black sinh=g 1.webp",
+    "/uploads\\1668067018905-black sinh=g 2.webp"
+  ],
+  "sale_price": 299,
+  "tax": 10,
+  "in_stock": true,
+  "stock": 100,
+  "is_variable_product": true,
+  "reviews": [],
+  "published_status": "PUBLISHED",
+  "name": "Carrylux Black Women Sling Bag",
+  "description": "<p style=\"text-align:left;\"><span style=\"color: rgb(102,102,102);font-size: 16px;font-family: Mier book;\">Name : Carrylux Black Women Sling Bag<br>Material : Faux Leather/Leatherette<br>No. of Compartments : 1<br>Pattern : Solid<br>Net Quantity (N) : 1<br>Sizes : Free Size (Length Size: 9 in, Width Size: 4 in, Height Size: 7 in)</span></p>\n<p style=\"text-align:left;\"><span style=\"color: rgb(102,102,102);font-size: 16px;font-family: Mier book;\">This sling bag is made by carrylux brand. made in premium quality synthetic leather fabric. it has 1 main compartment and 1 back pocket and 1 front pocket and a detachable sling strap. the overall bag is beautiful for every occasion. all accessories used in the bag is golden color.</span></p>\n<p style=\"text-align:left;\"><span style=\"color: rgb(102,102,102);font-size: 16px;font-family: Mier book;\">Country of Origin : India</span></p>\n",
+  "regular_price": 450,
+  "sku": "Test",
+  "weight": 10,
+  "length": 10,
+  "width": 10,
+  "height": 9,
+  "variation_attrs": [
+    {
+      "_id": {
+        "$oid": "636caf1a771dc6485cfa69c7"
+      },
+      "label": "Size",
+      "options": [
+        {
+          "_id": {
+            "$oid": "636caf1a771dc6485cfa69c8"
+          },
+          "value": "Free Size"
+        }
+      ]
+    }
+  ],
+  "variations": [
+    {
+      "media": [],
+      "_id": {
+        "$oid": "6388828abcc44a349988e848"
+      },
+      "price": "450",
+      "options": [
+        {
+          "_id": {
+            "$oid": "6388828abcc44a349988e849"
+          },
+          "label": "Size",
+          "value": "Free Size"
+        }
+      ],
+      "in_stock": "true",
+      "sku": "Test-1"
+    }
+  ],
+  "slug": "carrylux-black-women-sling-bag",
+  "created_by": {
+    "$oid": "636c95ea771dc6485cfa6972"
+  },
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1668067098651"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1669890698797"
+    }
+  },
+  "product_id": 1003,
+  "__v": 2,
+  "updated_by": {
+    "$oid": "634fadd6f4f3786d43dbf630"
+  },
+  "product_category": {
+    "$oid": "63747c863dec6c20bf184276"
+  }
+},{
+  "_id": {
+    "$oid": "636caff7771dc6485cfa69cc"
+  },
+  "collections": [
+    {
+      "$oid": "636cac5d771dc6485cfa699b"
+    },
+    {
+      "$oid": "636cac56771dc6485cfa699a"
+    },
+    {
+      "$oid": "636cac4a771dc6485cfa6999"
+    },
+    {
+      "$oid": "636caace771dc6485cfa6986"
+    },
+    {
+      "$oid": "636caa9e771dc6485cfa6982"
+    },
+    {
+      "$oid": "636c96a6771dc6485cfa6974"
+    }
+  ],
+  "categories": [],
+  "media": [
+    "/uploads\\1668067273753-black sweatshirt.webp"
+  ],
+  "sale_price": 490,
+  "tax": 12,
+  "in_stock": true,
+  "stock": 100,
+  "is_variable_product": true,
+  "reviews": [],
+  "published_status": "PUBLISHED",
+  "name": "Winter fleece designed black sweatshirt",
+  "description": "<p style=\"text-align:left;\"><span style=\"color: rgb(102,102,102);font-size: 16px;font-family: Mier book;\">Name : Winter fleece designed black sweatshirt<br>Fabric : Fleece<br>Sleeve Length : Long Sleeves<br>Pattern : Printed<br>Net Quantity (N) : 1<br>Sizes : <br>XS (Bust Size : 34 in, Length Size: 26 in, Hip Size: 35 in)<br>S (Bust Size : 36 in, Length Size: 26 in, Hip Size: 37 in)<br>M (Bust Size : 38 in, Length Size: 27 in, Hip Size: 39 in)<br>L (Bust Size : 40 in, Length Size: 27 in, Hip Size: 41 in)<br>XL (Bust Size : 42 in, Length Size: 28 in, Hip Size: 43 in)<br>Country of Origin : India</span></p>\n",
+  "regular_price": 599,
+  "sku": "Test",
+  "weight": 10,
+  "length": 10,
+  "width": 10,
+  "height": 10,
+  "variation_attrs": [
+    {
+      "_id": {
+        "$oid": "636caff7771dc6485cfa69cd"
+      },
+      "label": "Size",
+      "options": [
+        {
+          "_id": {
+            "$oid": "636caff7771dc6485cfa69ce"
+          },
+          "value": "S"
+        },
+        {
+          "_id": {
+            "$oid": "636caff7771dc6485cfa69cf"
+          },
+          "value": "M"
+        },
+        {
+          "_id": {
+            "$oid": "636caff7771dc6485cfa69d0"
+          },
+          "value": "L"
+        },
+        {
+          "_id": {
+            "$oid": "636caff7771dc6485cfa69d1"
+          },
+          "value": "XL"
+        }
+      ]
+    }
+  ],
+  "variations": [
+    {
+      "media": [],
+      "_id": {
+        "$oid": "6388829fbcc44a349988e84f"
+      },
+      "price": "599",
+      "options": [
+        {
+          "_id": {
+            "$oid": "6388829fbcc44a349988e850"
+          },
+          "label": "Size",
+          "value": "S"
+        }
+      ],
+      "in_stock": "true",
+      "sku": "Test-1"
+    },
+    {
+      "media": [],
+      "_id": {
+        "$oid": "6388829fbcc44a349988e851"
+      },
+      "price": "599",
+      "options": [
+        {
+          "_id": {
+            "$oid": "6388829fbcc44a349988e852"
+          },
+          "label": "Size",
+          "value": "M"
+        }
+      ],
+      "in_stock": "true",
+      "sku": "Test-2"
+    },
+    {
+      "media": [],
+      "_id": {
+        "$oid": "6388829fbcc44a349988e853"
+      },
+      "price": "599",
+      "options": [
+        {
+          "_id": {
+            "$oid": "6388829fbcc44a349988e854"
+          },
+          "label": "Size",
+          "value": "L"
+        }
+      ],
+      "in_stock": "true",
+      "sku": "Test-3"
+    },
+    {
+      "media": [],
+      "_id": {
+        "$oid": "6388829fbcc44a349988e855"
+      },
+      "price": "599",
+      "options": [
+        {
+          "_id": {
+            "$oid": "6388829fbcc44a349988e856"
+          },
+          "label": "Size",
+          "value": "XL"
+        }
+      ],
+      "in_stock": "true",
+      "sku": "Test-4"
+    }
+  ],
+  "slug": "winter-fleece-designed-black-sweatshirt",
+  "created_by": {
+    "$oid": "636c95ea771dc6485cfa6972"
+  },
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1668067319520"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1669890719057"
+    }
+  },
+  "product_id": 1004,
+  "__v": 2,
+  "updated_by": {
+    "$oid": "634fadd6f4f3786d43dbf630"
+  },
+  "product_category": {
+    "$oid": "63747c863dec6c20bf184276"
+  }
+},{
+  "_id": {
+    "$oid": "636cb0b3771dc6485cfa69eb"
+  },
+  "collections": [
+    {
+      "$oid": "636cac5d771dc6485cfa699b"
+    },
+    {
+      "$oid": "636cac56771dc6485cfa699a"
+    },
+    {
+      "$oid": "636cac4a771dc6485cfa6999"
+    },
+    {
+      "$oid": "636caace771dc6485cfa6986"
+    },
+    {
+      "$oid": "636caa9e771dc6485cfa6982"
+    },
+    {
+      "$oid": "636c96a6771dc6485cfa6974"
+    }
+  ],
+  "categories": [],
+  "media": [
+    "/uploads\\1668067426150-PURPLE 1.webp",
+    "/uploads\\1668067428982-PURPLE 2.webp",
+    "/uploads\\1668067432182-PURPLE 3.webp"
+  ],
+  "sale_price": 689,
+  "tax": 12,
+  "in_stock": true,
+  "stock": 100,
+  "is_variable_product": true,
+  "reviews": [],
+  "published_status": "PUBLISHED",
+  "name": "Trendy Sweatshirts Oversized T-shirts Winter Wear For Womens",
+  "description": "<p style=\"text-align:left;\"><span style=\"color: rgb(102,102,102);font-size: 16px;font-family: Mier book;\">Name : Trendy Sweatshirts Oversized T-shirts Winter Wear For Womens<br>Fabric : Fleece<br>Sleeve Length : Long Sleeves<br>Pattern : Solid<br>Net Quantity (N) : 1<br>Sizes : <br>S (Bust Size : 38 in, Length Size: 24 in)<br>M (Bust Size : 40 in, Length Size: 25 in)<br>L (Bust Size : 42 in, Length Size: 26 in)<br>XL (Bust Size : 44 in, Length Size: 27 in)<br>Country of Origin : India</span></p>\n",
+  "regular_price": 799,
+  "sku": "Test",
+  "weight": 10,
+  "length": 10,
+  "width": 10,
+  "height": 9,
+  "variation_attrs": [
+    {
+      "_id": {
+        "$oid": "636cb0b3771dc6485cfa69ec"
+      },
+      "label": "Size",
+      "options": [
+        {
+          "_id": {
+            "$oid": "636cb0b3771dc6485cfa69ed"
+          },
+          "value": "S"
+        },
+        {
+          "_id": {
+            "$oid": "636cb0b3771dc6485cfa69ee"
+          },
+          "value": "M"
+        },
+        {
+          "_id": {
+            "$oid": "636cb0b3771dc6485cfa69ef"
+          },
+          "value": "L"
+        }
+      ]
+    }
+  ],
+  "variations": [
+    {
+      "media": [],
+      "_id": {
+        "$oid": "638882b3bcc44a349988e85b"
+      },
+      "price": "799",
+      "options": [
+        {
+          "_id": {
+            "$oid": "638882b3bcc44a349988e85c"
+          },
+          "label": "Size",
+          "value": "S"
+        }
+      ],
+      "in_stock": "true",
+      "sku": "Test-1"
+    },
+    {
+      "media": [],
+      "_id": {
+        "$oid": "638882b3bcc44a349988e85d"
+      },
+      "price": "799",
+      "options": [
+        {
+          "_id": {
+            "$oid": "638882b3bcc44a349988e85e"
+          },
+          "label": "Size",
+          "value": "M"
+        }
+      ],
+      "in_stock": "true",
+      "sku": "Test-2"
+    },
+    {
+      "media": [],
+      "_id": {
+        "$oid": "638882b3bcc44a349988e85f"
+      },
+      "price": "799",
+      "options": [
+        {
+          "_id": {
+            "$oid": "638882b3bcc44a349988e860"
+          },
+          "label": "Size",
+          "value": "L"
+        }
+      ],
+      "in_stock": "true",
+      "sku": "Test-3"
+    }
+  ],
+  "slug": "trendy-sweatshirts-oversized-t-shirts-winter-wear-for-womens",
+  "created_by": {
+    "$oid": "636c95ea771dc6485cfa6972"
+  },
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1668067507551"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1669890739852"
+    }
+  },
+  "product_id": 1005,
+  "__v": 3,
+  "updated_by": {
+    "$oid": "634fadd6f4f3786d43dbf630"
+  },
+  "product_category": {
+    "$oid": "63747c863dec6c20bf184276"
+  }
+},{
+  "_id": {
+    "$oid": "636cb16b771dc6485cfa6a18"
+  },
+  "collections": [
+    {
+      "$oid": "636cac5d771dc6485cfa699b"
+    },
+    {
+      "$oid": "636cac56771dc6485cfa699a"
+    },
+    {
+      "$oid": "636cac4a771dc6485cfa6999"
+    },
+    {
+      "$oid": "636caab6771dc6485cfa6983"
+    },
+    {
+      "$oid": "636caa9e771dc6485cfa6982"
+    },
+    {
+      "$oid": "636c9691771dc6485cfa6973"
+    }
+  ],
+  "categories": [],
+  "media": [
+    "/uploads\\1668067630833-men shirt.webp"
+  ],
+  "sale_price": 799,
+  "tax": 12,
+  "in_stock": true,
+  "stock": 100,
+  "is_variable_product": true,
+  "reviews": [],
+  "published_status": "PUBLISHED",
+  "name": "Vellical Men Shirts",
+  "description": "<p style=\"text-align:left;\"><span style=\"color: rgb(102,102,102);font-size: 16px;font-family: Mier book;\">Name : Vellical Men Shirts<br>Fabric : Cotton Blend<br>Sleeve Length : Long Sleeves<br>Pattern : Checked<br>Net Quantity (N) : 1<br>Sizes : <br>M (Chest Size : 40 in, Length Size: 29.5 in)<br>VELLICAL PREMIUM BRANDED SHIRTS FOR MENS WEAR<br>Country of Origin : India</span></p>\n",
+  "regular_price": 890,
+  "sku": "Test",
+  "weight": 10,
+  "length": 10,
+  "width": 9,
+  "height": 10,
+  "variation_attrs": [
+    {
+      "_id": {
+        "$oid": "636cb16b771dc6485cfa6a19"
+      },
+      "label": "Size",
+      "options": [
+        {
+          "_id": {
+            "$oid": "636cb16b771dc6485cfa6a1a"
+          },
+          "value": "S"
+        },
+        {
+          "_id": {
+            "$oid": "636cb16b771dc6485cfa6a1b"
+          },
+          "value": "M"
+        },
+        {
+          "_id": {
+            "$oid": "636cb16b771dc6485cfa6a1c"
+          },
+          "value": "L"
+        }
+      ]
+    }
+  ],
+  "variations": [
+    {
+      "media": [],
+      "_id": {
+        "$oid": "638882f2bcc44a349988e865"
+      },
+      "price": "890",
+      "options": [
+        {
+          "_id": {
+            "$oid": "638882f2bcc44a349988e866"
+          },
+          "label": "Size",
+          "value": "S"
+        }
+      ],
+      "in_stock": "true",
+      "sku": "Test-1"
+    },
+    {
+      "media": [],
+      "_id": {
+        "$oid": "638882f2bcc44a349988e867"
+      },
+      "price": "890",
+      "options": [
+        {
+          "_id": {
+            "$oid": "638882f2bcc44a349988e868"
+          },
+          "label": "Size",
+          "value": "M"
+        }
+      ],
+      "in_stock": "true",
+      "sku": "Test-2"
+    },
+    {
+      "media": [],
+      "_id": {
+        "$oid": "638882f2bcc44a349988e869"
+      },
+      "price": "890",
+      "options": [
+        {
+          "_id": {
+            "$oid": "638882f2bcc44a349988e86a"
+          },
+          "label": "Size",
+          "value": "L"
+        }
+      ],
+      "in_stock": "true",
+      "sku": "Test-3"
+    }
+  ],
+  "slug": "vellical-men-shirts",
+  "created_by": {
+    "$oid": "636c95ea771dc6485cfa6972"
+  },
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1668067691270"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1669890802603"
+    }
+  },
+  "product_id": 1006,
+  "__v": 1,
+  "product_category": {
+    "$oid": "63747c863dec6c20bf184276"
+  },
+  "updated_by": {
+    "$oid": "634fadd6f4f3786d43dbf630"
+  }
+},{
+  "_id": {
+    "$oid": "636cb1fe771dc6485cfa6a26"
+  },
+  "collections": [
+    {
+      "$oid": "636cac5d771dc6485cfa699b"
+    },
+    {
+      "$oid": "636cac56771dc6485cfa699a"
+    },
+    {
+      "$oid": "636cac4a771dc6485cfa6999"
+    },
+    {
+      "$oid": "636caab6771dc6485cfa6983"
+    },
+    {
+      "$oid": "636c9691771dc6485cfa6973"
+    },
+    {
+      "$oid": "636caa9e771dc6485cfa6982"
+    }
+  ],
+  "categories": [],
+  "media": [
+    "/uploads\\1668067737272-RED SHIRT.webp"
+  ],
+  "sale_price": 499,
+  "tax": 12,
+  "in_stock": true,
+  "stock": 100,
+  "is_variable_product": true,
+  "reviews": [],
+  "published_status": "PUBLISHED",
+  "name": "The lugai fashion cotton casual shirts for men",
+  "description": "<p style=\"text-align:left;\"><span style=\"color: rgb(102,102,102);font-size: 16px;font-family: Mier book;\">Name : The lugai fashion cotton casual shirts for men<br>Fabric : Cotton<br>Sleeve Length : Short Sleeves<br>Pattern : Printed<br>Net Quantity (N) : 1<br>Sizes : <br>XL (Chest Size : 42 in, Length Size: 29 in)<br>L (Chest Size : 40 in, Length Size: 28.5 in)<br>M (Chest Size : 38 in, Length Size: 28 in)<br>shirts<br>Country of Origin : India</span></p>\n",
+  "regular_price": 590,
+  "sku": "Test",
+  "weight": 10,
+  "length": 10,
+  "width": 10,
+  "height": 9,
+  "variation_attrs": [
+    {
+      "_id": {
+        "$oid": "636cb1fe771dc6485cfa6a27"
+      },
+      "label": "Size",
+      "options": [
+        {
+          "_id": {
+            "$oid": "636cb1fe771dc6485cfa6a28"
+          },
+          "value": "XL"
+        },
+        {
+          "_id": {
+            "$oid": "636cb1fe771dc6485cfa6a29"
+          },
+          "value": "L"
+        },
+        {
+          "_id": {
+            "$oid": "636cb1fe771dc6485cfa6a2a"
+          },
+          "value": "M"
+        }
+      ]
+    }
+  ],
+  "variations": [
+    {
+      "media": [],
+      "_id": {
+        "$oid": "63888250bcc44a349988e83c"
+      },
+      "price": "590",
+      "options": [
+        {
+          "_id": {
+            "$oid": "63888250bcc44a349988e83d"
+          },
+          "label": "Size",
+          "value": "XL"
+        }
+      ],
+      "in_stock": "true",
+      "sku": "Test-1"
+    },
+    {
+      "media": [],
+      "_id": {
+        "$oid": "63888250bcc44a349988e83e"
+      },
+      "price": "590",
+      "options": [
+        {
+          "_id": {
+            "$oid": "63888250bcc44a349988e83f"
+          },
+          "label": "Size",
+          "value": "L"
+        }
+      ],
+      "in_stock": "true",
+      "sku": "Test-2"
+    },
+    {
+      "media": [],
+      "_id": {
+        "$oid": "63888250bcc44a349988e840"
+      },
+      "price": "590",
+      "options": [
+        {
+          "_id": {
+            "$oid": "63888250bcc44a349988e841"
+          },
+          "label": "Size",
+          "value": "M"
+        }
+      ],
+      "in_stock": "true",
+      "sku": "Test-3"
+    }
+  ],
+  "slug": "the-lugai-fashion-cotton-casual-shirts-for-men",
+  "created_by": {
+    "$oid": "636c95ea771dc6485cfa6972"
+  },
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1668067838499"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1669890640258"
+    }
+  },
+  "product_id": 1007,
+  "__v": 1,
+  "product_category": {
+    "$oid": "63747c863dec6c20bf184276"
+  },
+  "updated_by": {
+    "$oid": "634fadd6f4f3786d43dbf630"
+  }
+}]

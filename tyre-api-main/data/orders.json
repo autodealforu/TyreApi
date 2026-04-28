@@ -1,0 +1,86 @@
+[{
+  "_id": {
+    "$oid": "6378cc45d59926d713f84ca7"
+  },
+  "shipping_details": {
+    "scans": []
+  },
+  "commission": {
+    "is_paid": false,
+    "cod_charges": 0,
+    "delivery_charges": 0
+  },
+  "is_paid": true,
+  "published_status": "PUBLISHED",
+  "order_date": {
+    "$date": {
+      "$numberLong": "1670803200000"
+    }
+  },
+  "status": "PROCESSING",
+  "payment_method": "ONLINE",
+  "sub_total": 220,
+  "total_amount": 220,
+  "tax": 60,
+  "discount": 120,
+  "delivery_charges": 20,
+  "vendor": {
+    "$oid": "636deb6950f8268581e7a370"
+  },
+  "address": {
+    "address_1": "123 Main street",
+    "address_2": "somethihng",
+    "city": "Kanpur",
+    "state": "UP",
+    "pin": 202121,
+    "landmark": "Test landmark"
+  },
+  "customer": {
+    "name": "Nishant Tripathi",
+    "phone": "9849494949",
+    "email": "nishant.tripathi7700@gmail.com",
+    "customer": "6377351678ef26866f7b889b"
+  },
+  "products": [
+    {
+      "_id": {
+        "$oid": "6378cc45d59926d713f84ca8"
+      },
+      "product": {
+        "$oid": "632c51ed1f606e3679a26432"
+      },
+      "name": "Some Product 1",
+      "slug": "some-product-slug",
+      "regular_price": 150,
+      "sale_price": 120,
+      "image": "/uploads/1663649601505-143-1438348_ribbon-best-price-guarantee-icon.png",
+      "quantity": 2
+    },
+    {
+      "_id": {
+        "$oid": "6378cc45d59926d713f84ca9"
+      },
+      "product": {
+        "$oid": "632c51ed1f606e3679a26432"
+      },
+      "name": "Some Product 2",
+      "slug": "some-product-2",
+      "regular_price": 250,
+      "sale_price": 150,
+      "image": "/uploads/1663649601505-143-1438348_ribbon-best-price-guarantee-icon.png",
+      "quantity": 3
+    }
+  ],
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1668860997993"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1668860997993"
+    }
+  },
+  "order_id": 1001,
+  "__v": 0
+}]
