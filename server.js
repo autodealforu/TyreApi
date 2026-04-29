@@ -1,4 +1,5 @@
 import path from 'path';
+import { fileURLToPath } from 'url';
 import express from 'express';
 import dotenv from 'dotenv';
 import colors from 'colors';
@@ -169,9 +170,11 @@ app.get('/api/razorpay', (req, res) => {
   });
 });
 
-import { fileURLToPath } from 'url';
+
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
+
+// Then update your static route to use a simple string for the folder:
 app.use('/uploads', cors(), express.static(path.join(__dirname, 'uploads')));
 
 if (process.env.NODE_ENV === 'production') {
