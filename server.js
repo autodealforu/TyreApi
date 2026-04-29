@@ -169,7 +169,9 @@ app.get('/api/razorpay', (req, res) => {
   });
 });
 
-const __dirname = path.resolve();
+import { fileURLToPath } from 'url';
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 app.use('/uploads', cors(), express.static(path.join(__dirname, 'uploads')));
 
 if (process.env.NODE_ENV === 'production') {
