@@ -80,7 +80,14 @@ if (process.env.NODE_ENV === 'development') {
 }
 
 app.use(express.json());
-app.use(cors());
+app.use(cors({
+  origin: [
+    "https://main.d2rx1qldm8fkz9.amplifyapp.com", // Admin Panel
+    "https://main.d17qz4fp1tum7m.amplifyapp.com", // Frontend
+    "http://localhost:3000"                       // Local testing
+  ],
+  credentials: true
+}));
 
 app.use('/api/users', userRoutes);
 app.use('/api/newsletters', newsletterRoutes);
@@ -163,7 +170,7 @@ app.get('/api/razorpay', (req, res) => {
 });
 
 const __dirname = path.resolve();
-app.use('/uploads', express.static(path.join(__dirname, '/uploads')));
+app.use('/uploads', cors(), express.static(path.join(__dirname, '/uploads')));
 
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static(path.join(__dirname, '/admin/build')));
