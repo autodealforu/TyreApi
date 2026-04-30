@@ -83,8 +83,11 @@ if (process.env.NODE_ENV === 'development') {
 app.use(express.json());
 app.use(cors({
   origin: [
-    "https://main.d2rx1qldm8fkz9.amplifyapp.com", // Admin Panel
-    "https://main.d17qz4fp1tum7m.amplifyapp.com", // Frontend
+    "https://main.d2rx1qldm8fkz9.amplifyapp.com", // Admin Panel (old)
+    "https://main.d17qz4fp1tum7m.amplifyapp.com", // Frontend (old)
+    "https://autodeal4u.in",                      // Frontend
+    "https://www.autodeal4u.in",                  // Frontend (www)
+    "https://admin.autodeal4u.in",                // Admin Panel (new)
     "http://localhost:3000"                       // Local testing
   ],
   credentials: true
