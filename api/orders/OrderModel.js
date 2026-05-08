@@ -445,6 +445,14 @@ const orderSchema = mongoose.Schema(
       enum: ['PUBLISHED', 'DRAFT'],
       default: 'PUBLISHED',
     },
+    commission: {
+      is_paid: { type: Boolean, default: false },
+      commission_percentage: { type: Number },
+      commission_amount: { type: Number },
+      cod_charges: { type: Number },
+      tax: { type: Number },
+      sub_commission_amount: { type: Number },
+    },
   },
   {
     timestamps: true,

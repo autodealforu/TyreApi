@@ -17,7 +17,18 @@ const getOrdersDataToCreateFunction = async ({ product, order_data }) => {
 
       let commission_amount = 0;
       let commission_percentage = 0;
-      if (product_details.sub_sub_category) {
+
+      const vendorDetails = await User.findById(product_details.vendor);
+
+      if (
+        vendorDetails &&
+        vendorDetails.vendor &&
+        vendorDetails.vendor.commission_rate !== undefined
+      ) {
+        const commission = vendorDetails.vendor.commission_rate;
+        commission_percentage = commission;
+        commission_amount = (product.sale_price * commission) / 100;
+      } else if (product_details.sub_sub_category) {
         const sub_sub_category = await SubSubCategory.findById(
           product_details.sub_sub_category
         );
@@ -85,7 +96,8 @@ const getOrdersDataToCreateFunction = async ({ product, order_data }) => {
       const order = new Order(orderDataForEntry);
       const createdOrder = await order.save();
 
-      const vendorDetails = await User.findById(product_details.vendor);
+      // vendorDetails already fetched above
+      // const vendorDetails = await User.findById(product_details.vendor);
 
       if (
         createdOrder &&

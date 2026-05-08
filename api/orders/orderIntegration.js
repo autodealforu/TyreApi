@@ -116,7 +116,7 @@ const processCheckoutFlow = asyncHandler(async (req, res) => {
           vendor_id: product.vendor._id,
           vendor_name: product.vendor.name,
           store_name: product.vendor.store_name,
-          commission_rate: product.vendor.commission_rate || 10,
+          commission_rate: (product.vendor.vendor && product.vendor.vendor.commission_rate) || 10,
           total_amount: 0,
           products: [],
         });

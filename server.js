@@ -88,7 +88,8 @@ app.use(cors({
     "https://autodeal4u.in",                      // Frontend
     "https://www.autodeal4u.in",                  // Frontend (www)
     "https://admin.autodeal4u.in",                // Admin Panel (new)
-    "http://localhost:3000"                       // Local testing
+    "http://localhost:3000",                      // Local testing
+    "http://localhost:3005"                       // Local testing (port 3005)
   ],
   credentials: true
 }));

@@ -172,6 +172,11 @@ const userSchema = mongoose.Schema(
         required: false,
         default: false,
       },
+      commission_rate: {
+        type: Number,
+        required: false,
+        default: 10,
+      },
     },
     role: {
       type: String,
