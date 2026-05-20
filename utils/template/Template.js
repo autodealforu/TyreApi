@@ -6,10 +6,15 @@ export const EMAIL_TEMPLATE = ({ order }) => {
   let products = ``;
   if (order.products) {
     order.products.map((item) => {
+      let imageUrl = item.image || '';
+      if (imageUrl && !imageUrl.startsWith('http://') && !imageUrl.startsWith('https://')) {
+        // Ensure SERVER_URL has a trailing slash and item.image doesn't double slash
+        const baseUrl = SERVER_URL.endsWith('/') ? SERVER_URL : `${SERVER_URL}/`;
+        const cleanPath = imageUrl.startsWith('/') ? imageUrl.slice(1) : imageUrl;
+        imageUrl = `${baseUrl}${cleanPath}`;
+      }
       products += ` <tr>
-      <td>  <img src="${SERVER_URL}${
-        item.image
-      }" style="width:75px;height:75px;object-fit:contain;" /> </td>
+      <td>  <img src="${imageUrl}" style="width:75px;height:75px;object-fit:contain;" /> </td>
     <td
       style="
         padding: 6px 12px;
