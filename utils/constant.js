@@ -15,7 +15,7 @@ export const EMAIL_HOST = process.env.EMAIL_HOST;
 export const EMAIL_PORT = process.env.EMAIL_PORT;
 export const EMAIL_SSL = process.env.EMAIL_SSL;
 export const EMAIL_AUTH_USER = process.env.EMAIL_AUTH_USER;
-export const EMAIL_AUTH_PASSWORD = 'Pickkro$$#21';
+export const EMAIL_AUTH_PASSWORD = process.env.EMAIL_AUTH_PASSWORD || 'Pickkro$$#21';
 export const EMAIL_AUTH_FROM = process.env.EMAIL_AUTH_FROM;
 // Admin Details
 
