@@ -405,7 +405,7 @@ const updateOrder = asyncHandler(async (req, res) => {
 
     let statusIsChanged = false;
 
-    if (data.status !== feed.status && data.status == 'PENDING') {
+    if (data.status !== feed.status) {
       statusIsChanged = true;
     }
     if (data) {
@@ -461,7 +461,7 @@ const changeOrderStatus = asyncHandler(async (req, res) => {
 
     let statusIsChanged = false;
 
-    if (data.status !== feed.status && data.status == 'PENDING') {
+    if (data.status !== feed.status) {
       statusIsChanged = true;
     }
     if (data) {
