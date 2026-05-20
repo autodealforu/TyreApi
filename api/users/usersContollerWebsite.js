@@ -4,6 +4,12 @@ import generateToken from '../../utils/generateToken.js';
 import User from './UserModel.js';
 import jwt from 'jsonwebtoken';
 import request from 'request';
+import twilio from 'twilio';
+
+const twilioClient = twilio(
+  process.env.TWILIO_ACCOUNT_SID,
+  process.env.TWILIO_AUTH_TOKEN
+);
 
 // @desc    Auth user & get token
 // @route   POST /api/users/login
@@ -15,28 +21,31 @@ const generateOTP = asyncHandler(async (req, res) => {
   try {
     const { phone } = req.body;
     let otp = Math.floor(1000 + Math.random() * 9000).toString();
-    var options = {
-      method: 'POST',
-      url: 'https://api.textlocal.in/send/',
-      formData: {
-        apiKey: 'Nzg3OTc3NGU2MzYyNjM3MjM2NTE0ZjYzNmIzMzZkMzM=',
-        numbers: `91${phone}`,
-        sender: 'RAROTP',
-        message: `Dear%20User%2C%20Your%20OTP%20is%20${otp}.%20Please%20enter%20the%20same%20to%20continue%20with%20your%20mobile%20verification%20process.%20-%20Regards%2C%20Rareview%20Fashion.`,
-      },
-    };
-    request(options, function (error, response) {
-      if (error)
-        throw new Error('Something went wrong please try again after sometime');
-      console.log(response.body);
-      const token = jwt.sign({ otp, phone }, process.env.JWT_SECRET, {
-        expiresIn: '1d',
+    
+    // Log OTP for easy local testing
+    console.log(`[TESTING] Generated OTP for ${phone}: ${otp}`);
+
+    const formattedPhone = phone.startsWith('+') ? phone : `+91${phone}`;
+
+    try {
+      await twilioClient.messages.create({
+        body: `Your Autodeal4U verification code is: ${otp}`,
+        from: process.env.TWILIO_PHONE_NUMBER,
+        to: formattedPhone
       });
-      res.json({
-        token,
-      });
+      console.log(`Twilio OTP sent successfully to ${formattedPhone}`);
+    } catch (smsError) {
+      console.error('Twilio SMS Delivery failed, but OTP generated for console logs:', smsError);
+    }
+
+    const token = jwt.sign({ otp, phone }, process.env.JWT_SECRET, {
+      expiresIn: '15m',
+    });
+    res.json({
+      token,
     });
   } catch (error) {
+    console.error('generateOTP Error:', error);
     throw new Error('Not working please try again after some time');
   }
 });

@@ -21,7 +21,7 @@ import {
 import { protect, admin } from '../../middleware/authMiddleware.js';
 import { generateOTP, verifyOTP } from './usersContollerWebsite.js';
 // router.route("/").post(registerUser).get(protect, admin, getUsers);
-router.route('/websites/gerate-otp').post(generateOTP);
+router.route('/websites/generate-otp').post(generateOTP);
 router.route('/websites/verify-otp').post(verifyOTP);
 router.route('/register').post(registerUser);
 router.route('/register-vendor').post(registerVendor);
