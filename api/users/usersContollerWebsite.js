@@ -53,11 +53,17 @@ const generateOTP = asyncHandler(async (req, res) => {
 // OTP Verification
 const verifyOTP = asyncHandler(async (req, res) => {
   try {
-    const { otp, token } = req.body;
+    const { otp, token, verifyOnly } = req.body;
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
     console.log('decoded', decoded);
     if (decoded) {
       if (otp === decoded.otp) {
+        if (verifyOnly) {
+          return res.json({
+            success: true,
+            message: 'OTP verified successfully'
+          });
+        }
         const user = await User.findOne({ username: decoded.phone });
         if (!user) {
           let password = Math.floor(
