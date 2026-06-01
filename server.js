@@ -69,6 +69,7 @@ import PlyRatingRoutes from './api/plyratings/plyRatingRoutes.js';
 import ThreadPattern from './api/thread-patterns/threadPatternRoutes.js';
 import ProductTypeRoutes from './api/product-types/productTypeRoutes.js';
 import MakeModelRoutes from './api/makeandmodels/makeModelRoutes.js';
+import razorpayRoutes from './api/razorpay/razorpay.js';
 
 dotenv.config();
 
@@ -157,23 +158,7 @@ app.use('/test-ship', webhookRoutes);
 app.use('/api/googlefeed', googleRoutes);
 
 app.use('/api/upload', upload);
-
-app.get('/api/razorpay', (req, res) => {
-  var instance = new Razorpay({
-    key_id: 'rzp_live_Jb8obvKfR04xtT',
-    key_secret: '63VtAgD1R5NhNjaAh3rvRhTw',
-  });
-
-  var options = {
-    amount: req.query.amount * 100, // amount in the smallest currency unit
-    currency: 'INR',
-    receipt: 'order_rcptid_11',
-  };
-  instance.orders.create(options, function (err, order) {
-    console.log(order);
-    res.json(order);
-  });
-});
+app.use('/api/razorpay', razorpayRoutes);
 
 
 const __filename = fileURLToPath(import.meta.url);
