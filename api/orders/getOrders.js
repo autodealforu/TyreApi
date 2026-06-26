@@ -57,11 +57,13 @@ const getOrders = asyncHandler(async (req, res) => {
         req.query.installation_option;
     }
 
-    // Filter out unpaid/pending online orders
-    searchParams['$or'] = [
-      { payment_method: { $ne: 'ONLINE' } },
-      { 'payment_details.payment_status': 'SUCCESS' }
-    ];
+    // Filter out unpaid/pending online orders for CUSTOMER and VENDOR roles
+    if (req.user && (req.user.role === 'CUSTOMER' || req.user.role === 'VENDOR')) {
+      searchParams['$or'] = [
+        { payment_method: { $ne: 'ONLINE' } },
+        { 'payment_details.payment_status': 'SUCCESS' }
+      ];
+    }
 
     console.log('Search Params', searchParams);
 
