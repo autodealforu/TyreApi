@@ -278,6 +278,10 @@ const getVendorOrders = asyncHandler(async (req, res) => {
     let searchParams = {
       published_status: 'PUBLISHED',
       'products.vendor': vendorId,
+      $or: [
+        { payment_method: { $ne: 'ONLINE' } },
+        { 'payment_details.payment_status': 'SUCCESS' }
+      ]
     };
 
     // Additional filters

@@ -16,6 +16,13 @@ const getAllOrders = asyncHandler(async (req, res) => {
     const page = Number(req.query.pageNumber) || 1;
     let searchParams = {};
     searchParams['published_status'] = 'PUBLISHED';
+    
+    // Filter out unpaid/pending online orders
+    searchParams['$or'] = [
+      { payment_method: { $ne: 'ONLINE' } },
+      { 'payment_details.payment_status': 'SUCCESS' }
+    ];
+
     if (req.query.term && req.query.value) {
       // searchParams[req.query.term] = req.query.value;
       searchParams[req.query.term] = {

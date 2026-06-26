@@ -2,6 +2,8 @@ import asyncHandler from 'express-async-handler';
 import Order from './OrderModel.js';
 import sendEmail from '../../utils/mail.js';
 import { ORDER_UPDATE_TEMPLATE } from '../../utils/template/OrderStatusTemplate.js';
+import Notification from '../notifications/NotificationModel.js';
+import { EMAIL_TEMPLATE } from '../../utils/template/Template.js';
 
 // @desc    Update order status
 // @route   PUT /api/orders/:id/status
@@ -132,9 +134,42 @@ const updatePaymentStatus = asyncHandler(async (req, res) => {
       order.payment_details.gateway = gateway;
     }
 
+    const wasPaid = order.is_paid;
+
     if (payment_status === 'SUCCESS') {
       order.is_paid = true;
       order.payment_details.payment_date = new Date();
+
+      if (!wasPaid) {
+        // Populate the order details for the email template
+        const populatedOrder = await Order.findById(order._id)
+          .populate('products.product')
+          .populate('products.vendor', 'name email phone store_name location')
+          .populate('vendor_commissions.vendor', 'name email phone store_name')
+          .populate('customer.customer', 'name email phone')
+          .populate('created_by', 'name email')
+          .populate('updated_by', 'name email');
+
+        // Send confirmation email
+        if (populatedOrder.customer && populatedOrder.customer.email) {
+          try {
+            sendEmail({
+              to: populatedOrder.customer.email,
+              subject: `Your order #${populatedOrder.order_id} has been placed successfully`,
+              html: EMAIL_TEMPLATE({ order: populatedOrder }),
+            });
+          } catch (emailError) {
+            console.error('Email sending error:', emailError);
+          }
+        }
+
+        // Create admin notification
+        const notification = new Notification({
+          notes: `<p>New Order #${order.order_id} of amount ₹${order.total_amount} has been received.</p>`,
+          order: order._id,
+        });
+        await notification.save();
+      }
     } else if (payment_status === 'FAILED' || payment_status === 'REFUNDED') {
       order.is_paid = false;
       if (payment_status === 'REFUNDED') {

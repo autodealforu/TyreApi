@@ -1,3 +1,4 @@
+import dns from 'dns';
 import path from 'path';
 import express from 'express';
 import dotenv from 'dotenv';
@@ -70,6 +71,10 @@ import ProductTypeRoutes from './api/product-types/productTypeRoutes.js';
 import MakeModelRoutes from './api/makeandmodels/makeModelRoutes.js';
 
 dotenv.config();
+
+if (process.env.NODE_ENV !== 'production') {
+  dns.setServers(['8.8.8.8', '8.8.4.4', '1.1.1.1']);
+}
 
 connectDB();
 

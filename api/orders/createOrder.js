@@ -178,8 +178,8 @@ const createOrder = asyncHandler(async (req, res) => {
       .populate('created_by', 'name email')
       .populate('updated_by', 'name email');
 
-    // Send order confirmation email
-    if (createdOrder.customer && createdOrder.customer.email) {
+    // Send order confirmation email (only for COD since online sends after success)
+    if (createdOrder.payment_method !== 'ONLINE' && createdOrder.customer && createdOrder.customer.email) {
       try {
         sendEmail({
           to: createdOrder.customer.email,
@@ -192,25 +192,27 @@ const createOrder = asyncHandler(async (req, res) => {
       }
     }
 
-    // Create notifications for admin and vendors
-    const notification = new Notification({
-      notes: `<p>New Order #${createdOrder.order_id} of amount ₹${createdOrder.total_amount} has been received.</p>`,
-      order: createdOrder._id,
-    });
-    await notification.save();
+    // Create notifications for admin and vendors (only for COD since online sends after success)
+    if (createdOrder.payment_method !== 'ONLINE') {
+      const notification = new Notification({
+        notes: `<p>New Order #${createdOrder.order_id} of amount ₹${createdOrder.total_amount} has been received.</p>`,
+        order: createdOrder._id,
+      });
+      await notification.save();
 
-    // Create notifications for each vendor
-    const vendors = [...new Set(data.products.map((p) => p.vendor.toString()))];
-    await Promise.all(
-      vendors.map(async (vendorId) => {
-        const vendorNotification = new Notification({
-          notes: `<p>New Order #${createdOrder.order_id} assigned to you. Please review and accept.</p>`,
-          order: createdOrder._id,
-          user: vendorId,
-        });
-        await vendorNotification.save();
-      })
-    );
+      // Create notifications for each vendor
+      const vendors = [...new Set(data.products.map((p) => p.vendor.toString()))];
+      await Promise.all(
+        vendors.map(async (vendorId) => {
+          const vendorNotification = new Notification({
+            notes: `<p>New Order #${createdOrder.order_id} assigned to you. Please review and accept.</p>`,
+            order: createdOrder._id,
+            user: vendorId,
+          });
+          await vendorNotification.save();
+        })
+      );
+    }
 
     res.status(201).json({
       success: true,

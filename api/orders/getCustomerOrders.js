@@ -16,7 +16,13 @@ const getCustomerOrders = asyncHandler(async (req, res) => {
       return res.status(403).json({ success: false, message: 'Access denied.' });
     }
 
-    const orders = await Order.find({ 'customer.customer': customerId })
+    const orders = await Order.find({
+      'customer.customer': customerId,
+      $or: [
+        { payment_method: { $ne: 'ONLINE' } },
+        { 'payment_details.payment_status': 'SUCCESS' }
+      ]
+    })
       .sort({ order_date: -1 })
       .limit(50);
 

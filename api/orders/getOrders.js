@@ -57,6 +57,12 @@ const getOrders = asyncHandler(async (req, res) => {
         req.query.installation_option;
     }
 
+    // Filter out unpaid/pending online orders
+    searchParams['$or'] = [
+      { payment_method: { $ne: 'ONLINE' } },
+      { 'payment_details.payment_status': 'SUCCESS' }
+    ];
+
     console.log('Search Params', searchParams);
 
     const count = await Order.countDocuments({ ...searchParams });

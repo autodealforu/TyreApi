@@ -1,3 +1,4 @@
+import dns from 'dns';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import express from 'express';
@@ -72,6 +73,10 @@ import MakeModelRoutes from './api/makeandmodels/makeModelRoutes.js';
 import razorpayRoutes from './api/razorpay/razorpay.js';
 
 dotenv.config();
+
+if (process.env.NODE_ENV !== 'production') {
+  dns.setServers(['8.8.8.8', '8.8.4.4', '1.1.1.1']);
+}
 
 connectDB();
 
