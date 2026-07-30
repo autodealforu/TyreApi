@@ -294,12 +294,12 @@ const updateDeliveryCharges = asyncHandler(async (req, res) => {
 // @access  Private/Admin
 const updatePayoutStatus = asyncHandler(async (req, res) => {
   try {
-    const { vendor_id, is_paid } = req.body;
+    let { vendor_id, is_paid } = req.body;
 
-    if (!vendor_id || is_paid === undefined) {
+    if (is_paid === undefined) {
       return res.status(400).json({
         success: false,
-        message: 'Vendor ID and payout status are required',
+        message: 'Payout status (is_paid) is required',
       });
     }
 
@@ -312,49 +312,41 @@ const updatePayoutStatus = asyncHandler(async (req, res) => {
       });
     }
 
-    // Find and update if vendor is in order
-    const hasVendor = order.products.some(
-      (p) => p.vendor.toString() === vendor_id
-    );
-
-    if (!hasVendor) {
-      return res.status(404).json({
-        success: false,
-        message: 'Vendor not found in this order',
-      });
+    // Resolve vendor_id fallback if missing
+    if (!vendor_id) {
+      vendor_id = order.vendor_commissions?.[0]?.vendor?.toString() ||
+        order.products?.[0]?.vendor?.toString() ||
+        order.vendor?.toString();
     }
 
     let updatedVendorCommission = false;
+
+    // 1. Update vendor_commissions array if present
     if (order.vendor_commissions && order.vendor_commissions.length > 0) {
       order.vendor_commissions.forEach((vc) => {
-        if (vc.vendor && vc.vendor.toString() === vendor_id) {
+        if (!vendor_id || (vc.vendor && vc.vendor.toString() === vendor_id)) {
           vc.payment_status = is_paid ? 'PAID' : 'PENDING';
           updatedVendorCommission = true;
         }
       });
     }
 
-    // For legacy single vendor support:
-    if (order.vendor && order.vendor.toString() === vendor_id) {
-      if (!order.commission) {
-        order.commission = {};
-      }
-      order.commission.is_paid = is_paid;
-      updatedVendorCommission = true;
+    // 2. Update legacy single vendor commission structure
+    if (!order.commission) {
+      order.commission = {};
     }
+    order.commission.is_paid = is_paid;
+    updatedVendorCommission = true;
 
-    if (!updatedVendorCommission) {
-      // Create a vendor commission record if it didn't exist but the vendor is in products
-      if (!order.vendor_commissions) {
-        order.vendor_commissions = [];
-      }
-      order.vendor_commissions.push({
+    // 3. Create vendor commission entry if vendor_id exists but entry didn't exist
+    if (vendor_id && (!order.vendor_commissions || order.vendor_commissions.length === 0)) {
+      order.vendor_commissions = [{
         vendor: vendor_id,
         payment_status: is_paid ? 'PAID' : 'PENDING',
-        total_amount: order.sub_total || 0,
+        total_amount: order.sub_total || order.total_amount || 0,
         commission_rate: order.commission?.commission_percentage || 10,
-        commission_amount: order.commission?.commission_amount || 0,
-      });
+        commission_amount: order.commission?.commission_amount || ((order.sub_total || order.total_amount || 0) * 0.10),
+      }];
     }
 
     order.updated_by = req.user._id;
