@@ -39,6 +39,10 @@ router.route('/:id/invoice/data').get(getOrderInvoiceData);
 // Basic CRUD routes
 router.route('/').get(protect, getOrders).post(createOrder);
 router.route('/all').get(protect, getAllOrders);
+
+// Bulk Payout Settle route (Must be defined before /:id)
+router.route('/vendor-payout-settle').put(protect, admin, settleVendorBulkPayout);
+
 router
   .route('/:id')
   .get(getOrderById)
@@ -46,7 +50,6 @@ router
   .put(protect, updateOrder);
 
 // Status update routes
-router.route('/vendor-payout-settle').put(protect, admin, settleVendorBulkPayout);
 router.route('/:id/status').put(protect, updateOrderStatus);
 router.route('/:id/payment-status').put(protect, updatePaymentStatus);
 router.route('/:id/delivery-charges').put(protect, updateDeliveryCharges);

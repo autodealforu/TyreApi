@@ -1,4 +1,5 @@
 import asyncHandler from 'express-async-handler';
+import mongoose from 'mongoose';
 import Order from './OrderModel.js';
 import sendEmail from '../../utils/mail.js';
 import { ORDER_UPDATE_TEMPLATE } from '../../utils/template/OrderStatusTemplate.js';
@@ -392,18 +393,36 @@ const settleVendorBulkPayout = asyncHandler(async (req, res) => {
       return res.status(400).json({ success: false, message: 'Vendor ID is required' });
     }
 
+    const isObjectId = mongoose.Types.ObjectId.isValid(vendor_id);
+    const vObjId = isObjectId ? new mongoose.Types.ObjectId(vendor_id) : vendor_id;
+    const vendorQueryList = isObjectId ? [vendor_id, vObjId] : [vendor_id];
+
     // 1. Update multi-vendor commissions array
     await Order.updateMany(
-      { 'vendor_commissions.vendor': vendor_id, status: { $nin: ['FAILED', 'CANCELLED'] } },
+      { 'vendor_commissions.vendor': { $in: vendorQueryList }, status: { $nin: ['FAILED', 'CANCELLED'] } },
       { $set: { 'vendor_commissions.$[elem].payment_status': 'PAID' } },
-      { arrayFilters: [{ 'elem.vendor': vendor_id }] }
+      { arrayFilters: [{ 'elem.vendor': { $in: vendorQueryList } }] }
     );
 
-    // 2. Update legacy vendor commissions
+    // 2. Update legacy single vendor commission field
     await Order.updateMany(
-      { vendor: vendor_id, status: { $nin: ['FAILED', 'CANCELLED'] } },
+      { vendor: { $in: vendorQueryList }, status: { $nin: ['FAILED', 'CANCELLED'] } },
       { $set: { 'commission.is_paid': true } }
     );
+
+    // 3. Update orders where product vendor matches
+    await Order.updateMany(
+      { 'products.vendor': { $in: vendorQueryList }, status: { $nin: ['FAILED', 'CANCELLED'] } },
+      { $set: { 'commission.is_paid': true } }
+    );
+
+    // 4. Fallback for 'general' vendor ID
+    if (vendor_id === 'general') {
+      await Order.updateMany(
+        { status: { $nin: ['FAILED', 'CANCELLED'] } },
+        { $set: { 'commission.is_paid': true } }
+      );
+    }
 
     res.json({
       success: true,
