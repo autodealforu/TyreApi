@@ -382,9 +382,46 @@ const updatePayoutStatus = asyncHandler(async (req, res) => {
   }
 });
 
+// @desc    Settle all pending payouts for a vendor in bulk
+// @route   PUT /api/orders/vendor-payout-settle
+// @access  Private/Admin
+const settleVendorBulkPayout = asyncHandler(async (req, res) => {
+  try {
+    const { vendor_id } = req.body;
+    if (!vendor_id) {
+      return res.status(400).json({ success: false, message: 'Vendor ID is required' });
+    }
+
+    // 1. Update multi-vendor commissions array
+    await Order.updateMany(
+      { 'vendor_commissions.vendor': vendor_id, status: { $nin: ['FAILED', 'CANCELLED'] } },
+      { $set: { 'vendor_commissions.$[elem].payment_status': 'PAID' } },
+      { arrayFilters: [{ 'elem.vendor': vendor_id }] }
+    );
+
+    // 2. Update legacy vendor commissions
+    await Order.updateMany(
+      { vendor: vendor_id, status: { $nin: ['FAILED', 'CANCELLED'] } },
+      { $set: { 'commission.is_paid': true } }
+    );
+
+    res.json({
+      success: true,
+      message: 'All pending payouts for this vendor have been marked as PAID successfully',
+    });
+  } catch (error) {
+    console.error('Settle Bulk Payout Error:', error);
+    res.status(500).json({
+      success: false,
+      message: error.message || 'Error settling bulk payouts',
+    });
+  }
+});
+
 export {
   updateOrderStatus,
   updatePaymentStatus,
   updateDeliveryCharges,
   updatePayoutStatus,
+  settleVendorBulkPayout,
 };
