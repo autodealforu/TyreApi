@@ -18,6 +18,7 @@ const getOrderById = asyncHandler(async (req, res) => {
     if (order) {
       // Re-fetch with populations
       order = await Order.findById(order._id)
+        .populate('vendor', 'name email phone store_name location address')
         .populate(
           'products.product',
           'name slug brand size regular_price sale_price tyre'
