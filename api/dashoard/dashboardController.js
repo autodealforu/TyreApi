@@ -212,6 +212,12 @@ const getDashboards = asyncHandler(async (req, res) => {
           .populate('vendor_commissions.vendor', 'name store_name')
           .populate('vendor', 'name store_name');
 
+        const allVendors = await User.find({ role: 'VENDOR' }, 'name store_name email phone');
+        const allVendorsMap = {};
+        allVendors.forEach((v) => {
+          allVendorsMap[v._id.toString()] = v.store_name || v.name || 'Vendor Store';
+        });
+
         const vendorMap = {};
 
         allOrders.forEach((order) => {
@@ -219,7 +225,7 @@ const getDashboards = asyncHandler(async (req, res) => {
             order.vendor_commissions.forEach((vc) => {
               const vObj = vc.vendor || {};
               const vId = vObj._id ? vObj._id.toString() : (vc.vendor ? vc.vendor.toString() : 'general');
-              const storeName = vc.store_name || vObj.store_name || vObj.name || vc.vendor_name || 'Vendor';
+              const storeName = vc.store_name || vObj.store_name || vObj.name || allVendorsMap[vId] || vc.vendor_name || 'Vendor';
 
               if (!vendorMap[vId]) {
                 vendorMap[vId] = {
@@ -252,7 +258,61 @@ const getDashboards = asyncHandler(async (req, res) => {
                 vendorMap[vId].pending_payout += net;
               }
             });
+          } else if (order.products && order.products.length > 0) {
+            order.products.forEach((p) => {
+              const vId = p.vendor ? p.vendor.toString() : (p.vendor_details?.vendor_id || 'general');
+              const storeName = p.vendor_details?.store_name || p.vendor_details?.name || allVendorsMap[vId] || 'Vendor';
+
+              if (!vendorMap[vId]) {
+                vendorMap[vId] = {
+                  vendor_id: vId,
+                  store_name: storeName,
+                  total_sales: 0,
+                  total_commission: 0,
+                  pending_payout: 0,
+                  completed_payout: 0,
+                  orders_count: 0,
+                };
+              }
+
+              const itemPrice = p.sale_price || p.regular_price || 0;
+              const itemQty = p.quantity || 1;
+              const sales = itemPrice * itemQty;
+              const commRate = 10;
+              const comm = sales * (commRate / 100);
+              const tax = comm * 0.18;
+              const net = Math.max(0, sales - comm - tax);
+
+              total_commissions += comm;
+              vendorMap[vId].total_sales += sales;
+              vendorMap[vId].total_commission += comm;
+              vendorMap[vId].orders_count += 1;
+
+              if (order.commission?.is_paid) {
+                total_payout_completed += net;
+                vendorMap[vId].completed_payout += net;
+              } else {
+                total_payout_pending += net;
+                vendorMap[vId].pending_payout += net;
+              }
+            });
           } else {
+            const vObj = order.vendor || {};
+            const vId = vObj._id ? vObj._id.toString() : (order.vendor ? order.vendor.toString() : 'general');
+            const storeName = vObj.store_name || vObj.name || allVendorsMap[vId] || 'General Vendor';
+
+            if (!vendorMap[vId]) {
+              vendorMap[vId] = {
+                vendor_id: vId,
+                store_name: storeName,
+                total_sales: 0,
+                total_commission: 0,
+                pending_payout: 0,
+                completed_payout: 0,
+                orders_count: 0,
+              };
+            }
+
             const sales = order.sub_total || order.total_amount || 0;
             const commRate = order.commission?.commission_percentage || 10;
             const comm = order.commission?.commission_amount || (sales * (commRate / 100));
@@ -260,11 +320,16 @@ const getDashboards = asyncHandler(async (req, res) => {
             const net = Math.max(0, sales - comm - tax);
 
             total_commissions += comm;
+            vendorMap[vId].total_sales += sales;
+            vendorMap[vId].total_commission += comm;
+            vendorMap[vId].orders_count += 1;
 
             if (order.commission?.is_paid) {
               total_payout_completed += net;
+              vendorMap[vId].completed_payout += net;
             } else {
               total_payout_pending += net;
+              vendorMap[vId].pending_payout += net;
             }
           }
         });
