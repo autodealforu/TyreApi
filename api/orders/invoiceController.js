@@ -93,7 +93,7 @@ const renderPDFContent = (doc, order) => {
 
   // --- ADDRESSES SECTION ---
   const addrY = 138;
-  const boxHeight = 98;
+  const boxHeight = 105;
 
   doc.rect(40, addrY, 250, boxHeight).fillAndStroke(lightBgColor, borderColor);
   doc.rect(305, addrY, 250, boxHeight).fillAndStroke(lightBgColor, borderColor);
@@ -109,19 +109,21 @@ const renderPDFContent = (doc, order) => {
   const custPhone = order.customer?.phone || '';
   const custEmail = order.customer?.email || '';
   const billAddr = order.billing_address || order.shipping_address || {};
-  const billAddrText = formatAddressText(billAddr);
+
+  const billLines = [
+    custName,
+    billAddr.address_1,
+    billAddr.address_2,
+    [billAddr.city, billAddr.state].filter(Boolean).join(', ') + (billAddr.pin ? ` - ${billAddr.pin}` : ''),
+    billAddr.landmark ? `Landmark: ${billAddr.landmark}` : null,
+    (custPhone || custEmail) ? `Phone: ${custPhone}${custEmail ? ' | ' + custEmail : ''}` : null
+  ].filter(Boolean).join('\n');
 
   doc
     .fillColor(darkTextColor)
     .fontSize(8.5)
-    .font('Helvetica-Bold')
-    .text(custName, 50, addrY + 20, { width: 230 })
     .font('Helvetica')
-    .text(billAddrText, 50, addrY + 32, { width: 230, lineGap: 1.5 });
-
-  if (custPhone || custEmail) {
-    doc.text(`Phone: ${custPhone}${custEmail ? ' | ' + custEmail : ''}`, 50, addrY + 80, { width: 230, ellipsis: true });
-  }
+    .text(billLines, 50, addrY + 20, { width: 230, lineGap: 1.5 });
 
   // Shipped To Header
   doc
@@ -131,19 +133,23 @@ const renderPDFContent = (doc, order) => {
     .text('SHIPPED TO', 315, addrY + 6);
 
   const shipAddr = order.shipping_address || {};
-  const shipAddrText = formatAddressText(shipAddr);
+  const shipLines = [
+    custName,
+    shipAddr.address_1,
+    shipAddr.address_2,
+    [shipAddr.city, shipAddr.state].filter(Boolean).join(', ') + (shipAddr.pin ? ` - ${shipAddr.pin}` : ''),
+    shipAddr.landmark ? `Landmark: ${shipAddr.landmark}` : null,
+    `Installation Option: ${order.installation_details?.option || 'NONE'}`
+  ].filter(Boolean).join('\n');
 
   doc
     .fillColor(darkTextColor)
     .fontSize(8.5)
-    .font('Helvetica-Bold')
-    .text(custName, 315, addrY + 20, { width: 230 })
     .font('Helvetica')
-    .text(shipAddrText, 315, addrY + 32, { width: 230, lineGap: 1.5 })
-    .text(`Installation: ${order.installation_details?.option || 'NONE'}`, 315, addrY + 80, { width: 230 });
+    .text(shipLines, 315, addrY + 20, { width: 230, lineGap: 1.5 });
 
   // --- PRODUCTS TABLE ---
-  let tableY = 250;
+  let tableY = 255;
   doc.rect(40, tableY, 515, 20).fill(secondaryColor);
 
   doc
