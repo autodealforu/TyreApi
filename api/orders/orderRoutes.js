@@ -28,7 +28,12 @@ import {
   getVendorOrders,
 } from './orderExtensions.js';
 import { getCustomerOrders } from './getCustomerOrders.js';
-// ...existing code...
+import { generateOrderInvoicePDF, getOrderInvoiceData } from './invoiceController.js';
+
+// Invoice routes (public / accessible for download)
+router.route('/:id/invoice').get(generateOrderInvoicePDF);
+router.route('/:id/invoice/data').get(getOrderInvoiceData);
+
 
 // Basic CRUD routes
 router.route('/').get(protect, getOrders).post(createOrder);

@@ -12,6 +12,14 @@ const orderSchema = mongoose.Schema(
       required: false,
       default: Date.now,
     },
+    invoice_number: {
+      type: String,
+      required: false,
+    },
+    invoice_date: {
+      type: Date,
+      required: false,
+    },
     status: {
       type: String,
       required: true,
@@ -453,6 +461,35 @@ const orderSchema = mongoose.Schema(
       tax: { type: Number },
       sub_commission_amount: { type: Number },
     },
+    vendor_commissions: [
+      {
+        vendor: {
+          type: mongoose.Schema.Types.ObjectId,
+          ref: 'User',
+        },
+        vendor_name: { type: String },
+        store_name: { type: String },
+        total_amount: { type: Number },
+        commission_rate: { type: Number },
+        commission_amount: { type: Number },
+        payment_status: {
+          type: String,
+          enum: ['PENDING', 'PAID'],
+          default: 'PENDING',
+        },
+        products: [
+          {
+            product: {
+              type: mongoose.Schema.Types.ObjectId,
+              ref: 'Product',
+            },
+            quantity: { type: Number },
+            unit_price: { type: Number },
+            total_price: { type: Number },
+          },
+        ],
+      },
+    ],
   },
   {
     timestamps: true,

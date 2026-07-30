@@ -46,6 +46,7 @@ import {
   quickBuyNow,
   getCheckoutPreview,
 } from './orderIntegration.js';
+import { generateOrderInvoicePDF, getOrderInvoiceData } from './invoiceController.js';
 
 // Import legacy controllers (for backward compatibility)
 import { getAllOrders } from './getAllOrders.js';
@@ -85,6 +86,10 @@ router.get('/:id/checkout-summary', protect, getOrderCheckoutSummary);
 router.put('/:id/payment', protect, updateOrderPayment);
 
 // ========== ORDER TRACKING AND MANAGEMENT ==========
+
+// Invoice routes
+router.get('/:id/invoice', generateOrderInvoicePDF);
+router.get('/:id/invoice/data', getOrderInvoiceData);
 
 // Public order tracking (with order number + email)
 router.get('/:id/tracking', getOrderTracking);

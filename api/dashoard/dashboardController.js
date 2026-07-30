@@ -147,6 +147,101 @@ const getDashboards = asyncHandler(async (req, res) => {
           createdAt: -1,
         });
 
+      let vendor_sales = 0;
+      let vendor_commission = 0;
+      let vendor_net_earnings = 0;
+      let vendor_payout_pending = 0;
+      let vendor_payout_completed = 0;
+
+      if (req.user && req.user.role === 'VENDOR') {
+        const allVendorOrders = await Order.find(
+          { ...orderSearchParams, status: { $nin: ['FAILED', 'CANCELLED'] } },
+          { vendor_commissions: 1, commission: 1, total_amount: 1, sub_total: 1, vendor: 1 }
+        );
+
+        allVendorOrders.forEach((order) => {
+          if (order.vendor_commissions && order.vendor_commissions.length > 0) {
+            const vc = order.vendor_commissions.find(
+              (v) => v.vendor && v.vendor.toString() === req.user._id.toString()
+            );
+            if (vc) {
+              const sales = vc.total_amount || 0;
+              const comm = vc.commission_amount || 0;
+              const tax = comm * 0.18;
+              const net = sales - comm - tax;
+
+              vendor_sales += sales;
+              vendor_commission += comm;
+              vendor_net_earnings += net;
+
+              if (vc.payment_status === 'PAID') {
+                vendor_payout_completed += net;
+              } else {
+                vendor_payout_pending += net;
+              }
+            }
+          } else if (order.vendor && order.vendor.toString() === req.user._id.toString()) {
+            const sales = order.sub_total || order.total_amount || 0;
+            const comm = order.commission?.commission_amount || 0;
+            const tax = order.commission?.tax || (comm * 0.18);
+            const net = sales - comm - tax;
+
+            vendor_sales += sales;
+            vendor_commission += comm;
+            vendor_net_earnings += net;
+
+            if (order.commission?.is_paid) {
+              vendor_payout_completed += net;
+            } else {
+              vendor_payout_pending += net;
+            }
+          }
+        });
+      }
+
+      let total_commissions = 0;
+      let total_payout_pending = 0;
+      let total_payout_completed = 0;
+
+      if (req.user && req.user.role === 'SUPER ADMIN') {
+        const allOrders = await Order.find(
+          { ...orderSearchParams, status: { $nin: ['FAILED', 'CANCELLED'] } },
+          { vendor_commissions: 1, commission: 1, total_amount: 1, sub_total: 1, vendor: 1 }
+        );
+
+        allOrders.forEach((order) => {
+          if (order.vendor_commissions && order.vendor_commissions.length > 0) {
+            order.vendor_commissions.forEach((vc) => {
+              const sales = vc.total_amount || 0;
+              const comm = vc.commission_amount || 0;
+              const tax = comm * 0.18;
+              const net = sales - comm - tax;
+
+              total_commissions += comm;
+
+              if (vc.payment_status === 'PAID') {
+                total_payout_completed += net;
+              } else {
+                total_payout_pending += net;
+              }
+            });
+          } else if (order.commission) {
+            const sales = order.sub_total || order.total_amount || 0;
+            const comm = order.commission.commission_amount || 0;
+            const tax = order.commission.tax || (comm * 0.18);
+            const net = sales - comm - tax;
+
+            total_commissions += comm;
+
+            if (order.commission.is_paid) {
+              total_payout_completed += net;
+            } else {
+              total_payout_pending += net;
+            }
+          }
+        });
+      }
+
       res.json({
         total_products: total_products,
         total_orders,
@@ -156,6 +251,16 @@ const getDashboards = asyncHandler(async (req, res) => {
         orders,
         order_total_states,
         order_total_states_count,
+        commission_stats: {
+          vendor_sales,
+          vendor_commission,
+          vendor_net_earnings,
+          vendor_payout_pending,
+          vendor_payout_completed,
+          total_commissions,
+          total_payout_pending,
+          total_payout_completed,
+        }
       });
     }
   } catch (error) {

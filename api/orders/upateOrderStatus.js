@@ -315,9 +315,39 @@ const updatePayoutStatus = asyncHandler(async (req, res) => {
       });
     }
 
-    // Since vendor_commissions is missing from schema, we'll need to decide how to track payout status.
-    // For now, I'll just update updated_by to avoid the crash if this is called.
-    // However, the main issues reported are status and payment status.
+    let updatedVendorCommission = false;
+    if (order.vendor_commissions && order.vendor_commissions.length > 0) {
+      order.vendor_commissions.forEach((vc) => {
+        if (vc.vendor && vc.vendor.toString() === vendor_id) {
+          vc.payment_status = is_paid ? 'PAID' : 'PENDING';
+          updatedVendorCommission = true;
+        }
+      });
+    }
+
+    // For legacy single vendor support:
+    if (order.vendor && order.vendor.toString() === vendor_id) {
+      if (!order.commission) {
+        order.commission = {};
+      }
+      order.commission.is_paid = is_paid;
+      updatedVendorCommission = true;
+    }
+
+    if (!updatedVendorCommission) {
+      // Create a vendor commission record if it didn't exist but the vendor is in products
+      if (!order.vendor_commissions) {
+        order.vendor_commissions = [];
+      }
+      order.vendor_commissions.push({
+        vendor: vendor_id,
+        payment_status: is_paid ? 'PAID' : 'PENDING',
+        total_amount: order.sub_total || 0,
+        commission_rate: order.commission?.commission_percentage || 10,
+        commission_amount: order.commission?.commission_amount || 0,
+      });
+    }
+
     order.updated_by = req.user._id;
 
     // Add order note
