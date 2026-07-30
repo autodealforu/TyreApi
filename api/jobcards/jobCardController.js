@@ -1,5 +1,6 @@
 import asyncHandler from 'express-async-handler';
 import JobCard from './JobCardModel.js';
+import Order from '../orders/OrderModel.js';
 import checkRequired from '../../utils/checkRequired.js';
 import mongoose from 'mongoose';
 import User from '../users/UserModel.js';
