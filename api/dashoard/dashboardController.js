@@ -207,16 +207,19 @@ const getDashboards = asyncHandler(async (req, res) => {
       if (req.user && req.user.role === 'SUPER ADMIN') {
         const allOrders = await Order.find(
           { ...orderSearchParams, status: { $nin: ['FAILED', 'CANCELLED'] } },
-          { vendor_commissions: 1, commission: 1, total_amount: 1, sub_total: 1, vendor: 1 }
-        );
+          { vendor_commissions: 1, commission: 1, total_amount: 1, sub_total: 1, vendor: 1, products: 1 }
+        )
+          .populate('vendor_commissions.vendor', 'name store_name')
+          .populate('vendor', 'name store_name');
 
         const vendorMap = {};
 
         allOrders.forEach((order) => {
           if (order.vendor_commissions && order.vendor_commissions.length > 0) {
             order.vendor_commissions.forEach((vc) => {
-              const vId = vc.vendor ? vc.vendor.toString() : 'general';
-              const storeName = vc.store_name || vc.vendor_name || 'Vendor';
+              const vObj = vc.vendor || {};
+              const vId = vObj._id ? vObj._id.toString() : (vc.vendor ? vc.vendor.toString() : 'general');
+              const storeName = vc.store_name || vObj.store_name || vObj.name || vc.vendor_name || 'Vendor';
 
               if (!vendorMap[vId]) {
                 vendorMap[vId] = {
