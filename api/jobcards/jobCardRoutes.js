@@ -11,9 +11,11 @@ import {
   getJobCards,
   getUserAndVehicle,
   updateJobCard,
+  syncAllOrdersToJobCards,
 } from './jobCardController.js';
 
 router.route('/').get(protect, getJobCards).post(protect, createJobCard);
+router.post('/sync', syncAllOrdersToJobCards);
 router.post('/getUserAndVehicle', getUserAndVehicle);
 router.post('/createCustomerAndVehicle', createCustomerAndVehicle);
 

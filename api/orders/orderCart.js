@@ -1,4 +1,5 @@
 import asyncHandler from 'express-async-handler';
+import { createJobCardsForOrder } from '../jobcards/jobCardController.js';
 import Order from './OrderModel.js';
 import Product from '../products/ProductModel.js';
 import User from '../users/UserModel.js';
@@ -210,6 +211,12 @@ const convertCartToOrder = asyncHandler(async (req, res) => {
       .populate('customer', 'name email phone')
       .populate('products.product', 'name sku images')
       .populate('vendor_commissions.vendor', 'name store_name');
+
+    try {
+      await createJobCardsForOrder(populatedOrder);
+    } catch (jcErr) {
+      console.error('JobCard auto-creation warning from cart:', jcErr);
+    }
 
     res.status(201).json({
       success: true,

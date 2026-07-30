@@ -22,7 +22,7 @@ const JobCardSchema = new mongoose.Schema(
     vehicle: {
       type: mongoose.Schema.Types.ObjectId,
       ref: 'Vehicle',
-      required: true,
+      required: false,
     },
 
     service_type: {

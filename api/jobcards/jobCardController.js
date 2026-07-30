@@ -436,6 +436,80 @@ const createCustomerAndVehicle = asyncHandler(async (req, res) => {
   }
 });
 
+// Helper to auto-create JobCards for a newly created order
+const createJobCardsForOrder = async (order) => {
+  try {
+    if (!order) return;
+    const customerId = order.customer?.customer || order.customer?._id || order.customer || order.created_by;
+    if (!customerId) return;
+
+    const products = order.products || [];
+    if (products.length === 0) return;
+
+    for (const item of products) {
+      const vendorId = item.vendor?._id || item.vendor || item.vendor_details?.vendor_id || order.vendor?._id || order.vendor;
+      if (!vendorId) continue;
+
+      const orderRef = `Order #${order.order_id || order._id}`;
+      const existing = await JobCard.findOne({
+        customer: customerId,
+        service_notes: { $regex: order._id ? order._id.toString() : String(order.order_id) },
+      });
+
+      if (!existing) {
+        const jobCard = new JobCard({
+          customer: customerId,
+          vendor: vendorId,
+          service_type: 'Maintenance',
+          service_description: item.name || 'Vehicle Service / Installation',
+          service_date: order.order_date || new Date(),
+          service_status: 'Pending',
+          service_notes: `Auto-generated from ${orderRef} (ID: ${order._id})`,
+          service_total_cost: item.sale_price || item.total_price || order.total_amount || 0,
+          services_used: [
+            {
+              service_id: item.product?._id || item.product,
+              service_name: item.name,
+              service_quantity: item.quantity || 1,
+              service_cost: item.sale_price || 0,
+              service_total_cost: (item.sale_price || 0) * (item.quantity || 1),
+            },
+          ],
+        });
+
+        await jobCard.save();
+        console.log(`✅ Auto-created JobCard for ${orderRef}`);
+      }
+    }
+  } catch (error) {
+    console.error('Error creating job card for order:', error);
+  }
+};
+
+// @desc    Sync all existing orders into job cards
+// @route   POST /api/job-cards/sync
+// @access  Public / Admin
+const syncAllOrdersToJobCards = asyncHandler(async (req, res) => {
+  try {
+    const orders = await Order.find({ status: { $nin: ['FAILED', 'CANCELLED'] } });
+    let createdCount = 0;
+
+    for (const order of orders) {
+      await createJobCardsForOrder(order);
+      createdCount++;
+    }
+
+    res.json({
+      success: true,
+      message: `Synced job cards for ${createdCount} orders!`,
+      createdCount,
+    });
+  } catch (error) {
+    console.error('Sync Error:', error);
+    res.status(500).json({ success: false, message: error.message });
+  }
+});
+
 export {
   getJobCards,
   getJobCardById,
@@ -445,4 +519,6 @@ export {
   getAllJobCards,
   getUserAndVehicle,
   createCustomerAndVehicle,
+  createJobCardsForOrder,
+  syncAllOrdersToJobCards,
 };

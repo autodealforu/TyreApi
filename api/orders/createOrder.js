@@ -7,7 +7,7 @@ import { NEW_USER_REGISTER_TEMPLATE } from '../../utils/template/NewRegisteredUs
 import { EMAIL_TEMPLATE } from '../../utils/template/Template.js';
 import Notification from '../notifications/NotificationModel.js';
 import Order from './OrderModel.js';
-import { generateOrderInvoiceBuffer } from './invoiceController.js';
+import { createJobCardsForOrder } from '../jobcards/jobCardController.js';
 
 const createOrder = asyncHandler(async (req, res) => {
   try {
@@ -178,6 +178,13 @@ const createOrder = asyncHandler(async (req, res) => {
       .populate('customer.customer', 'name email phone')
       .populate('created_by', 'name email')
       .populate('updated_by', 'name email');
+
+    // Auto-create JobCard for service/installation bookings
+    try {
+      await createJobCardsForOrder(populatedOrder);
+    } catch (jcError) {
+      console.error('JobCard auto-creation warning:', jcError);
+    }
 
     // Send order confirmation email (only for COD since online sends after success)
     if (createdOrder.payment_method !== 'ONLINE' && createdOrder.customer && createdOrder.customer.email) {
