@@ -11,13 +11,17 @@ import sendEmail from '../../utils/mail.js'; // Assuming you have a utility for 
 // @access  Public
 const getJobCards = asyncHandler(async (req, res) => {
   try {
-    const pageSize = Number(process.env.LIMIT) || 10;
+    const pageSize = Number(req.query.pageSize) || Number(process.env.LIMIT) || 100;
     const page = Number(req.query.pageNumber) || 1;
     let searchParams = {};
 
-    // MANDATORY Isolation logic: Vendors ONLY see their own records
-    if (req.user && req.user.role === 'VENDOR') {
-      searchParams['vendor'] = mongoose.Types.ObjectId(req.user._id);
+    // Role-based record isolation
+    if (req.user) {
+      if (req.user.role === 'VENDOR') {
+        searchParams['vendor'] = mongoose.Types.ObjectId(req.user._id);
+      } else if (req.user.role === 'CUSTOMER' && !req.query.exact?.customer) {
+        searchParams['customer'] = mongoose.Types.ObjectId(req.user._id);
+      }
     }
 
     if (req.query.search) {
