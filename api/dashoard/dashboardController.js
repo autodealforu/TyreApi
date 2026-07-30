@@ -202,6 +202,7 @@ const getDashboards = asyncHandler(async (req, res) => {
       let total_commissions = 0;
       let total_payout_pending = 0;
       let total_payout_completed = 0;
+      let vendor_payouts_list = [];
 
       if (req.user && req.user.role === 'SUPER ADMIN') {
         const allOrders = await Order.find(
@@ -209,37 +210,63 @@ const getDashboards = asyncHandler(async (req, res) => {
           { vendor_commissions: 1, commission: 1, total_amount: 1, sub_total: 1, vendor: 1 }
         );
 
+        const vendorMap = {};
+
         allOrders.forEach((order) => {
           if (order.vendor_commissions && order.vendor_commissions.length > 0) {
             order.vendor_commissions.forEach((vc) => {
+              const vId = vc.vendor ? vc.vendor.toString() : 'general';
+              const storeName = vc.store_name || vc.vendor_name || 'Vendor';
+
+              if (!vendorMap[vId]) {
+                vendorMap[vId] = {
+                  vendor_id: vId,
+                  store_name: storeName,
+                  total_sales: 0,
+                  total_commission: 0,
+                  pending_payout: 0,
+                  completed_payout: 0,
+                  orders_count: 0,
+                };
+              }
+
               const sales = vc.total_amount || 0;
-              const comm = vc.commission_amount || 0;
+              const commRate = vc.commission_rate || 10;
+              const comm = vc.commission_amount || (sales * (commRate / 100));
               const tax = comm * 0.18;
-              const net = sales - comm - tax;
+              const net = Math.max(0, sales - comm - tax);
 
               total_commissions += comm;
+              vendorMap[vId].total_sales += sales;
+              vendorMap[vId].total_commission += comm;
+              vendorMap[vId].orders_count += 1;
 
               if (vc.payment_status === 'PAID') {
                 total_payout_completed += net;
+                vendorMap[vId].completed_payout += net;
               } else {
                 total_payout_pending += net;
+                vendorMap[vId].pending_payout += net;
               }
             });
-          } else if (order.commission) {
+          } else {
             const sales = order.sub_total || order.total_amount || 0;
-            const comm = order.commission.commission_amount || 0;
-            const tax = order.commission.tax || (comm * 0.18);
-            const net = sales - comm - tax;
+            const commRate = order.commission?.commission_percentage || 10;
+            const comm = order.commission?.commission_amount || (sales * (commRate / 100));
+            const tax = order.commission?.tax || (comm * 0.18);
+            const net = Math.max(0, sales - comm - tax);
 
             total_commissions += comm;
 
-            if (order.commission.is_paid) {
+            if (order.commission?.is_paid) {
               total_payout_completed += net;
             } else {
               total_payout_pending += net;
             }
           }
         });
+
+        vendor_payouts_list = Object.values(vendorMap);
       }
 
       res.json({
@@ -260,6 +287,7 @@ const getDashboards = asyncHandler(async (req, res) => {
           total_commissions,
           total_payout_pending,
           total_payout_completed,
+          vendor_payouts_list,
         }
       });
     }
