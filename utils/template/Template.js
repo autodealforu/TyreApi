@@ -6,47 +6,53 @@ export const EMAIL_TEMPLATE = ({ order }) => {
   let products = ``;
   if (order.products) {
     order.products.map((item) => {
-      let imageUrl = item.image || '';
-      if (imageUrl && !imageUrl.startsWith('http://') && !imageUrl.startsWith('https://')) {
-        // Ensure SERVER_URL has a trailing slash and item.image doesn't double slash
-        const baseUrl = SERVER_URL.endsWith('/') ? SERVER_URL : `${SERVER_URL}/`;
-        const cleanPath = imageUrl.startsWith('/') ? imageUrl.slice(1) : imageUrl;
-        imageUrl = `${baseUrl}${cleanPath}`;
+      let imageCell = ``;
+      if (item.image && typeof item.image === 'string' && item.image.trim() !== '') {
+        let imageUrl = item.image.trim();
+        if (!imageUrl.startsWith('http://') && !imageUrl.startsWith('https://')) {
+          const baseUrl = (SERVER_URL || 'https://admin.autodeal4u.in').replace(/\/$/, '');
+          const cleanPath = imageUrl.replace(/^\//, '');
+          imageUrl = `${baseUrl}/${cleanPath}`;
+        }
+        imageCell = `<img src="${imageUrl}" alt="${item.name || 'Product'}" style="width:60px;height:60px;object-fit:cover;border-radius:6px;border:1px solid #e2e8f0;" />`;
+      } else {
+        imageCell = `<div style="width:60px;height:60px;background-color:#edf2f7;border-radius:6px;display:inline-block;line-height:60px;text-align:center;color:#a0aec0;font-size:10px;font-weight:bold;">TYRE</div>`;
       }
+
+      const itemPrice = item.sale_price || item.regular_price || 0;
+      const sku = item.sku || item.product?.sku || item.product?.model || '';
+
       products += ` <tr>
-      <td>  <img src="${imageUrl}" style="width:75px;height:75px;object-fit:contain;" /> </td>
-    <td
-      style="
-        padding: 6px 12px;
-        font-family: 'Source Sans Pro', Helvetica, Arial,
-          sans-serif;
-        font-size: 16px;
-        line-height: 24px;
-      "
-    >
-    <p> ${item.name} * ${item.quantity}  </p>
-    
-      
-    </td>
-   
-    <td
-      align="left
-      style="
-        padding: 6px 12px;
-        font-family: 'Source Sans Pro', Helvetica, Arial,
-          sans-serif;
-        font-size: 16px;
-        line-height: 24px;
-        width:25%;
-      "
-    >
-    ${
-      item.sale_price < item.regular_price
-        ? item.sale_price
-        : item.regular_price
-    }
-    </td>
-  </tr>`;
+      <td style="padding: 6px 12px; vertical-align: top;">${imageCell}</td>
+      <td
+        style="
+          padding: 6px 12px;
+          font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif;
+          font-size: 15px;
+          line-height: 22px;
+          vertical-align: top;
+        "
+      >
+        <p style="margin: 0; font-weight: bold; color: #1a202c;">${item.name || 'Product'} * ${item.quantity || 1}</p>
+        ${sku ? `<p style="margin: 2px 0 0 0; font-size: 13px; color: #718096;">SKU: ${sku}</p>` : ''}
+      </td>
+     
+      <td
+        align="right"
+        style="
+          padding: 6px 12px;
+          font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif;
+          font-size: 15px;
+          line-height: 22px;
+          font-weight: bold;
+          color: #2d3748;
+          vertical-align: top;
+          width:25%;
+        "
+      >
+        Rs. ${(itemPrice * (item.quantity || 1)).toLocaleString('en-IN')}
+      </td>
+    </tr>`;
     });
   }
   const HTMLTEXT = `<!DOCTYPE html>
@@ -196,22 +202,13 @@ export const EMAIL_TEMPLATE = ({ order }) => {
               <tr>
                 <td align="center" valign="top" style="padding: 36px 24px">
                   <a
-                    href=${URI_SITE}
+                    href="${URI_SITE || 'https://autodeal4u.in'}"
                     target="_blank"
-                    style="display: inline-block"
+                    style="display: inline-block; text-decoration: none;"
                   >
-                    <img
-                      src="${LOGO}"
-                      alt="Logo"
-                      border="0"
-                      width="48"
-                      style="
-                        display: block;
-                        width: 148px;
-                        max-width: 148px;
-                        min-width: 148px;
-                      "
-                    />
+                    <span style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 32px; font-weight: 900; letter-spacing: 2px; color: #1A365D; text-transform: uppercase;">
+                      AUTODEAL<span style="color: #2B6CB0;">4U</span>
+                    </span>
                   </a>
                 </td>
               </tr>

@@ -147,22 +147,13 @@ export const NEW_USER_REGISTER_TEMPLATE = ({ user, password }) => {
               <tr>
                 <td align="center" valign="top" style="padding: 36px 24px">
                   <a
-                    href=${URI_SITE}
+                    href="${URI_SITE || 'https://autodeal4u.in'}"
                     target="_blank"
-                    style="display: inline-block"
+                    style="display: inline-block; text-decoration: none;"
                   >
-                    <img
-                      src="${LOGO}"
-                      alt="Logo"
-                      border="0"
-                      width="48"
-                      style="
-                        display: block;
-                        width: 148px;
-                        max-width: 148px;
-                        min-width: 148px;
-                      "
-                    />
+                    <span style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 32px; font-weight: 900; letter-spacing: 2px; color: #1A365D; text-transform: uppercase;">
+                      AUTODEAL<span style="color: #2B6CB0;">4U</span>
+                    </span>
                   </a>
                 </td>
               </tr>

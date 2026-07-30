@@ -173,8 +173,13 @@ const renderPDFContent = (doc, order) => {
 
     const price = item.sale_price || item.regular_price || 0;
     const lineTotal = price * (item.quantity || 1);
+    const sku = item.sku || item.product?.sku || item.product?.model || '';
     const prodName = `${item.name || 'Product'} ${item.size ? '(' + item.size + ')' : ''}`;
-    const vendorInfo = item.vendor_details?.store_name ? `Vendor: ${item.vendor_details.store_name}` : '';
+    
+    const subDetails = [
+      sku ? `SKU: ${sku}` : null,
+      item.vendor_details?.store_name ? `Vendor: ${item.vendor_details.store_name}` : null,
+    ].filter(Boolean).join(' | ');
 
     doc
       .fillColor(darkTextColor)
@@ -186,7 +191,7 @@ const renderPDFContent = (doc, order) => {
       .font('Helvetica')
       .fillColor('#718096')
       .fontSize(7.5)
-      .text(vendorInfo, 70, tableY + 16, { width: 260, ellipsis: true })
+      .text(subDetails, 70, tableY + 16, { width: 260, ellipsis: true })
       .fillColor(darkTextColor)
       .fontSize(8.5)
       .text((item.quantity || 1).toString(), 340, tableY + 8, { width: 40, align: 'center' })
