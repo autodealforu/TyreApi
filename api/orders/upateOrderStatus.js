@@ -4,6 +4,7 @@ import sendEmail from '../../utils/mail.js';
 import { ORDER_UPDATE_TEMPLATE } from '../../utils/template/OrderStatusTemplate.js';
 import Notification from '../notifications/NotificationModel.js';
 import { EMAIL_TEMPLATE } from '../../utils/template/Template.js';
+import { generateOrderInvoiceBuffer } from './invoiceController.js';
 
 // @desc    Update order status
 // @route   PUT /api/orders/:id/status
@@ -150,13 +151,21 @@ const updatePaymentStatus = asyncHandler(async (req, res) => {
           .populate('created_by', 'name email')
           .populate('updated_by', 'name email');
 
-        // Send confirmation email
+        // Send confirmation email with PDF invoice attachment
         if (populatedOrder.customer && populatedOrder.customer.email) {
           try {
+            const invoiceBuffer = await generateOrderInvoiceBuffer(populatedOrder);
             sendEmail({
               to: populatedOrder.customer.email,
               subject: `Your order #${populatedOrder.order_id} has been placed successfully`,
               html: EMAIL_TEMPLATE({ order: populatedOrder }),
+              attachments: [
+                {
+                  filename: `Invoice_${populatedOrder.order_id || 'order'}.pdf`,
+                  content: invoiceBuffer,
+                  contentType: 'application/pdf',
+                },
+              ],
             });
           } catch (emailError) {
             console.error('Email sending error:', emailError);

@@ -18,13 +18,14 @@ var transporter = nodemailer.createTransport({
   },
 });
 
-const sendEmail = ({ to, subject, text, html }) => {
+const sendEmail = ({ to, subject, text, html, attachments }) => {
   var mailOptions = {
     from: EMAIL_AUTH_FROM,
     to: to,
     subject: subject,
     text: text,
     html: html,
+    attachments: attachments || [],
   };
 
   transporter.sendMail(mailOptions, function (error, info) {

@@ -7,6 +7,7 @@ import { NEW_USER_REGISTER_TEMPLATE } from '../../utils/template/NewRegisteredUs
 import { EMAIL_TEMPLATE } from '../../utils/template/Template.js';
 import Notification from '../notifications/NotificationModel.js';
 import Order from './OrderModel.js';
+import { generateOrderInvoiceBuffer } from './invoiceController.js';
 
 const createOrder = asyncHandler(async (req, res) => {
   try {
@@ -181,10 +182,18 @@ const createOrder = asyncHandler(async (req, res) => {
     // Send order confirmation email (only for COD since online sends after success)
     if (createdOrder.payment_method !== 'ONLINE' && createdOrder.customer && createdOrder.customer.email) {
       try {
+        const invoiceBuffer = await generateOrderInvoiceBuffer(populatedOrder);
         sendEmail({
           to: createdOrder.customer.email,
           subject: `Your order #${createdOrder.order_id} has been placed successfully`,
           html: EMAIL_TEMPLATE({ order: populatedOrder }),
+          attachments: [
+            {
+              filename: `Invoice_${createdOrder.order_id || 'order'}.pdf`,
+              content: invoiceBuffer,
+              contentType: 'application/pdf',
+            },
+          ],
         });
       } catch (emailError) {
         console.error('Email sending error:', emailError);
