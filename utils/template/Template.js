@@ -1,13 +1,29 @@
 import { LOGO, SERVER_URL, URI_SITE, ADDRESS } from '../constant.js';
 import moment from 'moment';
 
+const getSafeSKU = (item) => {
+  if (typeof item.sku === 'string' && item.sku.trim()) return item.sku.trim();
+  if (item.product && typeof item.product.sku === 'string' && item.product.sku.trim()) return item.product.sku.trim();
+  if (item.product && typeof item.product.model_name === 'string' && item.product.model_name.trim()) return item.product.model_name.trim();
+  if (item.product && typeof item.product.product_id === 'number') return `PRD-${item.product.product_id}`;
+  return '';
+};
+
+const isValidImageUrl = (url) => {
+  if (!url || typeof url !== 'string') return false;
+  const clean = url.trim();
+  if (clean.length < 5) return false;
+  if (clean.includes(' ') && !clean.startsWith('http')) return false;
+  return /\.(jpg|jpeg|png|webp|svg|gif)($|\?)/i.test(clean) || clean.startsWith('/uploads/') || clean.startsWith('http');
+};
+
 export const EMAIL_TEMPLATE = ({ order }) => {
   console.log(LOGO, SERVER_URL, URI_SITE, ADDRESS);
   let products = ``;
   if (order.products) {
     order.products.map((item) => {
       let imageCell = ``;
-      if (item.image && typeof item.image === 'string' && item.image.trim() !== '') {
+      if (isValidImageUrl(item.image)) {
         let imageUrl = item.image.trim();
         if (!imageUrl.startsWith('http://') && !imageUrl.startsWith('https://')) {
           const baseUrl = (SERVER_URL || 'https://admin.autodeal4u.in').replace(/\/$/, '');
@@ -16,11 +32,11 @@ export const EMAIL_TEMPLATE = ({ order }) => {
         }
         imageCell = `<img src="${imageUrl}" alt="${item.name || 'Product'}" style="width:60px;height:60px;object-fit:cover;border-radius:6px;border:1px solid #e2e8f0;" />`;
       } else {
-        imageCell = `<div style="width:60px;height:60px;background-color:#edf2f7;border-radius:6px;display:inline-block;line-height:60px;text-align:center;color:#a0aec0;font-size:10px;font-weight:bold;">TYRE</div>`;
+        imageCell = `<div style="width:60px;height:60px;background-color:#1A365D;border-radius:6px;display:inline-block;line-height:60px;text-align:center;color:#FFFFFF;font-size:10px;font-weight:bold;font-family:sans-serif;">AUTODEAL</div>`;
       }
 
       const itemPrice = item.sale_price || item.regular_price || 0;
-      const sku = item.sku || item.product?.sku || item.product?.model || '';
+      const sku = getSafeSKU(item);
 
       products += ` <tr>
       <td style="padding: 6px 12px; vertical-align: top;">${imageCell}</td>

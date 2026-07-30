@@ -38,6 +38,17 @@ const formatAddressText = (addr) => {
 };
 
 /**
+ * Helper to safely extract string SKU without returning Mongoose methods
+ */
+const getSafeSKU = (item) => {
+  if (typeof item.sku === 'string' && item.sku.trim()) return item.sku.trim();
+  if (item.product && typeof item.product.sku === 'string' && item.product.sku.trim()) return item.product.sku.trim();
+  if (item.product && typeof item.product.model_name === 'string' && item.product.model_name.trim()) return item.product.model_name.trim();
+  if (item.product && typeof item.product.product_id === 'number') return `PRD-${item.product.product_id}`;
+  return '';
+};
+
+/**
  * Render PDF Content onto a PDFKit doc stream
  */
 const renderPDFContent = (doc, order) => {
@@ -173,7 +184,7 @@ const renderPDFContent = (doc, order) => {
 
     const price = item.sale_price || item.regular_price || 0;
     const lineTotal = price * (item.quantity || 1);
-    const sku = item.sku || item.product?.sku || item.product?.model || '';
+    const sku = getSafeSKU(item);
     const prodName = `${item.name || 'Product'} ${item.size ? '(' + item.size + ')' : ''}`;
     
     const subDetails = [
