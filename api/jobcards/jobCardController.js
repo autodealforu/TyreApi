@@ -1,6 +1,7 @@
 import asyncHandler from 'express-async-handler';
 import JobCard from './JobCardModel.js';
 import Order from '../orders/OrderModel.js';
+import Product from '../products/ProductModel.js';
 import checkRequired from '../../utils/checkRequired.js';
 import mongoose from 'mongoose';
 import User from '../users/UserModel.js';
@@ -437,6 +438,47 @@ const createCustomerAndVehicle = asyncHandler(async (req, res) => {
   }
 });
 
+// Helper to check if an order item is a service or installation booking
+const isServiceBooking = async (item, order) => {
+  if (item.product) {
+    const prod = typeof item.product === 'object' && item.product.product_category
+      ? item.product
+      : await Product.findById(item.product).select('product_category service');
+
+    if (prod && (prod.product_category === 'SERVICE' || prod.service)) {
+      return true;
+    }
+  }
+
+  const itemName = (item.name || '').toLowerCase();
+  const serviceKeywords = [
+    'alignment',
+    'balancing',
+    'fitting',
+    'service',
+    'inspection',
+    'repair',
+    'installation',
+    'maintenance',
+    'wheel care',
+    'nitrogen',
+    'rotation',
+  ];
+  if (serviceKeywords.some((kw) => itemName.includes(kw))) {
+    return true;
+  }
+
+  if (
+    item.installation_fee > 0 ||
+    (order.installation_details && order.installation_details.total_installation_fee > 0) ||
+    (order.installation_details && order.installation_details.option === 'STORE')
+  ) {
+    return true;
+  }
+
+  return false;
+};
+
 // Helper to auto-create JobCards for a newly created order
 const createJobCardsForOrder = async (order) => {
   try {
@@ -448,6 +490,9 @@ const createJobCardsForOrder = async (order) => {
     if (products.length === 0) return;
 
     for (const item of products) {
+      const isService = await isServiceBooking(item, order);
+      if (!isService) continue;
+
       const vendorId = item.vendor?._id || item.vendor || item.vendor_details?.vendor_id || order.vendor?._id || order.vendor;
       if (!vendorId) continue;
 
@@ -479,7 +524,7 @@ const createJobCardsForOrder = async (order) => {
         });
 
         await jobCard.save();
-        console.log(`✅ Auto-created JobCard for ${orderRef}`);
+        console.log(`✅ Auto-created Service JobCard for ${orderRef} (${item.name})`);
       }
     }
   } catch (error) {
@@ -487,11 +532,40 @@ const createJobCardsForOrder = async (order) => {
   }
 };
 
-// @desc    Sync all existing orders into job cards
+// @desc    Sync all existing orders into job cards (Only for Service & Installation bookings)
 // @route   POST /api/job-cards/sync
 // @access  Public / Admin
 const syncAllOrdersToJobCards = asyncHandler(async (req, res) => {
   try {
+    // 1. Purge previous auto-generated job cards for non-service items
+    const autoJobCards = await JobCard.find({ service_notes: { $regex: 'Auto-generated from Order #' } });
+    let deletedCount = 0;
+
+    for (const jc of autoJobCards) {
+      const isServiceNote = jc.service_description || '';
+      const itemName = isServiceNote.toLowerCase();
+      const serviceKeywords = [
+        'alignment',
+        'balancing',
+        'fitting',
+        'service',
+        'inspection',
+        'repair',
+        'installation',
+        'maintenance',
+        'wheel care',
+        'nitrogen',
+        'rotation',
+      ];
+
+      const isService = serviceKeywords.some((kw) => itemName.includes(kw));
+      if (!isService) {
+        await JobCard.findByIdAndDelete(jc._id);
+        deletedCount++;
+      }
+    }
+
+    // 2. Re-create Job Cards for service/installation orders
     const orders = await Order.find({ status: { $nin: ['FAILED', 'CANCELLED'] } });
     let createdCount = 0;
 
@@ -502,7 +576,8 @@ const syncAllOrdersToJobCards = asyncHandler(async (req, res) => {
 
     res.json({
       success: true,
-      message: `Synced job cards for ${createdCount} orders!`,
+      message: `Cleaned up ${deletedCount} non-service job cards. Synced service job cards for ${createdCount} orders!`,
+      deletedCount,
       createdCount,
     });
   } catch (error) {
