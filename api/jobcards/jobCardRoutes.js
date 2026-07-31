@@ -12,10 +12,12 @@ import {
   getUserAndVehicle,
   updateJobCard,
   syncAllOrdersToJobCards,
+  cancelJobCardByCustomer,
 } from './jobCardController.js';
 
 router.route('/').get(protect, getJobCards).post(protect, createJobCard);
 router.post('/sync', syncAllOrdersToJobCards);
+router.put('/:id/cancel', protect, cancelJobCardByCustomer);
 router.post('/getUserAndVehicle', getUserAndVehicle);
 router.post('/createCustomerAndVehicle', createCustomerAndVehicle);
 

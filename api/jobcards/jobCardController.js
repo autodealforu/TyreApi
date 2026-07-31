@@ -318,9 +318,44 @@ const updateJobCard = asyncHandler(async (req, res) => {
       throw new Error('JobCard not found');
     }
   } catch (error) {
-    console.log(error);
-    res.status(502);
-    throw new Error('Something Went Wrong.');
+    console.error('Error updating job card:', error);
+    res.status(500).json({ success: false, message: error.message });
+  }
+});
+
+// @desc    Cancel a jobCard by customer
+// @route   PUT /api/job-cards/:id/cancel
+// @access  Private
+const cancelJobCardByCustomer = asyncHandler(async (req, res) => {
+  try {
+    const jobCard = await JobCard.findById(req.params.id);
+    if (!jobCard) {
+      res.status(404);
+      throw new Error('JobCard not found');
+    }
+
+    if (req.user && req.user.role === 'CUSTOMER' && String(jobCard.customer) !== String(req.user._id)) {
+      res.status(401);
+      throw new Error('Not authorized to cancel this job card');
+    }
+
+    if (jobCard.service_status === 'Completed') {
+      res.status(400);
+      throw new Error('Completed job cards cannot be cancelled');
+    }
+
+    jobCard.service_status = 'Cancelled';
+    jobCard.updated_at = new Date();
+    await jobCard.save();
+
+    res.json({
+      success: true,
+      message: 'Job card cancelled successfully',
+      jobCard,
+    });
+  } catch (error) {
+    console.error('Cancel JobCard Error:', error);
+    res.status(500).json({ success: false, message: error.message });
   }
 });
 
@@ -597,4 +632,5 @@ export {
   createCustomerAndVehicle,
   createJobCardsForOrder,
   syncAllOrdersToJobCards,
+  cancelJobCardByCustomer,
 };
