@@ -218,7 +218,18 @@ const JobCardSchema = new mongoose.Schema(
 
     form_type: {
       type: [String],
-      enum: ['CLMRKC', 'CLMTELI', 'WORKC', 'WOTELI', 'SSRkc', 'SSTeli', 'Lead'],
+      enum: [
+        'Claim',
+        'Work Order',
+        'Short Service',
+        'Lead',
+        'CLMRKC',
+        'CLMTELI',
+        'WORKC',
+        'WOTELI',
+        'SSRkc',
+        'SSTeli',
+      ],
       required: false,
     },
     odometer_reading: {
