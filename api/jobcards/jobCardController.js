@@ -229,17 +229,28 @@ const createJobCard = asyncHandler(async (req, res) => {
       }));
     }
 
-    // Ensure service_total_cost is provided and is a number
-    if (!data.service_total_cost) {
-      data.service_total_cost = 0;
-    }
-    data.service_total_cost = parseFloat(data.service_total_cost) || 0;
+    // Helper to calculate grand total cost
+    const calcGrandTotal = (obj) => {
+      const sSum = (obj.services_used || []).reduce((acc, s) => {
+        return acc + (Number(s.service_total_cost) || ((Number(s.service_cost) || 0) * (Number(s.service_quantity) || 1)));
+      }, 0);
+      const pSum = (obj.products_used || []).reduce((acc, p) => {
+        return acc + (Number(p.product_total_cost) || ((Number(p.product_cost) || 0) * (Number(p.product_quantity) || 1)));
+      }, 0);
+      const ptSum = (obj.service_parts_used || []).reduce((acc, pt) => {
+        return acc + (Number(pt.part_total_cost) || ((Number(pt.part_cost) || 0) * (Number(pt.part_quantity) || 1)));
+      }, 0);
+      const labor = Number(obj.service_labor_cost) || 0;
+      const total = sSum + pSum + ptSum + labor;
+      return total > 0 ? parseFloat(total.toFixed(2)) : (parseFloat(obj.service_total_cost) || 0);
+    };
 
     // Ensure service_labor_cost is provided and is a number
     if (!data.service_labor_cost) {
       data.service_labor_cost = 0;
     }
     data.service_labor_cost = parseFloat(data.service_labor_cost) || 0;
+    data.service_total_cost = calcGrandTotal(data);
 
     // Handle new Zoho form fields
     const {
@@ -307,6 +318,20 @@ const updateJobCard = asyncHandler(async (req, res) => {
       Object.keys(feed).map((item, index) => {
         data[item] = feed[item];
       });
+
+      // Recalculate service_total_cost based on updated fields
+      const sSum = (data.services_used || []).reduce((acc, s) => {
+        return acc + (Number(s.service_total_cost) || ((Number(s.service_cost) || 0) * (Number(s.service_quantity) || 1)));
+      }, 0);
+      const pSum = (data.products_used || []).reduce((acc, p) => {
+        return acc + (Number(p.product_total_cost) || ((Number(p.product_cost) || 0) * (Number(p.product_quantity) || 1)));
+      }, 0);
+      const ptSum = (data.service_parts_used || []).reduce((acc, pt) => {
+        return acc + (Number(pt.part_total_cost) || ((Number(pt.part_cost) || 0) * (Number(pt.part_quantity) || 1)));
+      }, 0);
+      const labor = Number(data.service_labor_cost) || 0;
+      const calcTotal = sSum + pSum + ptSum + labor;
+      data.service_total_cost = calcTotal > 0 ? parseFloat(calcTotal.toFixed(2)) : (parseFloat(data.service_total_cost) || 0);
 
       // Update timestamp
       data.updated_at = new Date();
