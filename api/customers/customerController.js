@@ -123,23 +123,49 @@ const deleteCustomer = asyncHandler(async (req, res) => {
 
 // @desc    Create a customer
 // @route   POST /api/customers
-// @access  Private/Admin
+// @access  Private
 const createCustomer = asyncHandler(async (req, res) => {
   try {
     var data = checkRequired(req.body);
     data.role = 'CUSTOMER';
-    data.username = data.email;
-    data.address = [data.address_data];
+    data.username = data.username || data.email || data.phone || `user_${Date.now()}`;
+    if (!data.password || String(data.password).trim() === '') {
+      data.password = 'Customer@123';
+    }
+    if (data.address_data) {
+      data.address = [data.address_data];
+    }
     if (req.user) {
       data.created_by = req.user._id;
     }
+
+    // Check if phone or email already exists
+    const queryConditions = [];
+    if (data.phone) queryConditions.push({ phone: data.phone });
+    if (data.email) queryConditions.push({ email: data.email });
+
+    if (queryConditions.length > 0) {
+      const existingUser = await User.findOne({ $or: queryConditions });
+      if (existingUser) {
+        res.status(400);
+        throw new Error(
+          existingUser.phone === data.phone
+            ? `Customer with phone number ${data.phone} already exists.`
+            : `Customer with email ${data.email} already exists.`
+        );
+      }
+    }
+
     const customer = new User(data);
     const createdCustomer = await customer.save();
     res.status(201).json(createdCustomer);
   } catch (error) {
-    console.log(error);
-    res.status(502);
-    throw new Error('Something Went Wrong. Please try again');
+    console.error('Error creating customer:', error);
+    const statusCode = res.statusCode === 200 ? 400 : res.statusCode;
+    res.status(statusCode).json({
+      success: false,
+      message: error.message || 'Something Went Wrong. Please try again',
+    });
   }
 });
 
